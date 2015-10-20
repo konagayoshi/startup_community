@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: startup_community_test
+  username: postgres
