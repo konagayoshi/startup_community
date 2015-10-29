@@ -1,0 +1,2 @@
+module JobDemandHelper
+end
