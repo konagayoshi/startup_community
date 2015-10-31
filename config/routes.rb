@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'jobdemand/jdlist'
+
+  get 'jobdemand/jddetail'
+
   resources :companies
   resources :students
   # The priority is based upon order of creation: first created -> highest priority.
