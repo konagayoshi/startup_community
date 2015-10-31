@@ -1,0 +1,18 @@
+<h1>Company Name</h1>
+<p>List of Vacancies</p>
+<table border="1">
+  <tr>
+    <th>No</th>
+    <th>Title</th>
+    <th>Overview</th>
+    <th>Education</th>
+  </tr>
+  <% @jobdemand.each.with_index(1) do |set, i| %>
+  <tr>
+    <td><%= "#{i}" %></td>
+    <td><%= set.title %></td>
+    <td><%= set.overview %></td>
+    <td><%= set.Education %></td>
+  </tr>
+  <% end %>
+</table>
