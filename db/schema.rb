@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20151031044727) do
     t.text     "overview"
     t.text     "reponsibility"
     t.text     "competency"
-    t.text     "Education"
+    t.text     "education"
     t.text     "workexperience"
     t.text     "lauguage"
     t.text     "other"
