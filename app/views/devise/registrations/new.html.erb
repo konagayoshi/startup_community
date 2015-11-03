@@ -4,8 +4,8 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :attr %><br />
-    <%= f.text_field :attr, autofocus: true %>
+    <strong>Attribute</strong><br />
+    <%= f.select(:attr, %w{ Student Company University }) %>
   </div>
 
   <div class="field">
