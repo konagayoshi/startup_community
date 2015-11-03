@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'user/index'
+
   get 'jobdemand/jdlist'
 
   get 'jobdemand/jddetail'
