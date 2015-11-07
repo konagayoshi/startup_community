@@ -5,4 +5,8 @@ class JobdemandController < ApplicationController
 
   def jddetail
   end
+  
+  def new
+    @jobdemand = Jobdemand.new();
+  end
 end

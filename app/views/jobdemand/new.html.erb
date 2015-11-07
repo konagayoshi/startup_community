@@ -1,0 +1,49 @@
+<h1>New Job Demand</h1>
+
+<%= form_for :jobdemand, url: jobdemand_path do |f| %>
+  <p>
+    <%= f.label :title, "Title" %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :overview, "Overview" %><br>
+    <%= f.text_field :overview %>
+  </p>
+  
+  <p>
+      <%= f.label :reponsibility, "Reponsibility" %><br>
+      <%= f.text_field :reponsibility %>
+  </p>
+  
+  <p>
+      <%= f.label :competency, "Competency" %><br>
+      <%= f.text_field :competency %>
+  </p>
+  
+  <p>
+      <%= f.label :education, "Education" %><br>
+      <%= f.text_field :education %>
+  </p>
+  
+  <p>
+      <%= f.label :workexperience, "Work Experience" %><br>
+      <%= f.text_field :workexperience %>
+  </p>
+  
+  <p>
+      <%= f.label :language, "Language" %><br>
+      <%= f.text_field :language %>
+  </p>
+  
+  <p>
+      <%= f.label :other, "Other" %><br>
+      <%= f.text_field :other %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', @jobdemand %>
