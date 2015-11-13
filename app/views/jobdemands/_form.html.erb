@@ -1,0 +1,50 @@
+<%= form_for(@jobdemand) do |f| %>
+  <% if @jobdemand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jobdemand.errors.count, "error") %> prohibited this jobdemand from being saved:</h2>
+
+      <ul>
+      <% @jobdemand.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :overview %><br>
+    <%= f.text_field :overview %>
+  </div>
+  <div class="field">
+    <%= f.label :reponsibility %><br>
+    <%= f.text_field :reponsibility %>
+  </div>
+  <div class="field">
+    <%= f.label :competency %><br>
+    <%= f.text_field :competency %>
+  </div>
+  <div class="field">
+    <%= f.label :education %><br>
+    <%= f.text_field :education %>
+  </div>
+  <div class="field">
+    <%= f.label :workexperience %><br>
+    <%= f.text_field :workexperience %>
+  </div>
+  <div class="field">
+    <%= f.label :lauguage %><br>
+    <%= f.text_field :lauguage %>
+  </div>
+  <div class="field">
+    <%= f.label :other %><br>
+    <%= f.text_field :other %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

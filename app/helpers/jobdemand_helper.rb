@@ -1,2 +1,0 @@
-module JobdemandHelper
-end
