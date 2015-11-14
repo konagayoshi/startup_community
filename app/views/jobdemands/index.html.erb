@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Jobdemands</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Overview</th>
+      <th>Reponsibility</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobdemands.each do |jobdemand| %>
+      <tr>
+        <td><%= jobdemand.title %></td>
+        <td><%= jobdemand.overview %></td>
+        <td><%= jobdemand.reponsibility %></td>
+        <td><%= link_to 'Show', jobdemand %></td>
+        <td><%= link_to 'Edit', edit_jobdemand_path(jobdemand) %></td>
+        <td><%= link_to 'Destroy', jobdemand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jobdemand', new_jobdemand_path %>
+<%= link_to 'Back', companies_path %>

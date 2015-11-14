@@ -1,21 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: Programmer
-  overview: Program in Ruby
-  reponsibility: AAA
-  competency: aaa
-  education: Master of information technology
-  workexperience: 2,3years
-  lauguage: English 
-  other: nothing
-
-two:
-  title: Researcher
-  overview: aaaaa
-  reponsibility: aaaaa
-  competency: aaaaa
-  education: aaaaa
-  workexperience: aaaa
-  lauguage: aaaaa
-  other: aaaaa
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

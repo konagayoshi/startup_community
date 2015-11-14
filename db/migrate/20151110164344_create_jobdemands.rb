@@ -9,7 +9,7 @@ class CreateJobdemands < ActiveRecord::Migration
       t.text :workexperience
       t.text :lauguage
       t.text :other
-
+      
       t.timestamps null: false
     end
   end

@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
+  resources :jobdemands
   devise_for :users
   get 'user/index'
-
-  get 'jobdemand/jdlist'
-
-  get 'jobdemand/jddetail'
 
   resources :companies
   resources :students
