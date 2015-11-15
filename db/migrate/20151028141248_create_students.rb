@@ -4,6 +4,10 @@ class CreateStudents < ActiveRecord::Migration
 		t.string :name
 		t.string :university
 		t.string :major
+		t.string :interestedfield
+		t.string :history
+		t.string :achievement
+		t.string :hope
 		t.timestamps null: false
     end
   end
