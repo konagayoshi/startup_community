@@ -11,18 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114145041) do
+ActiveRecord::Schema.define(version: 20151121151520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "colleges", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.text     "contact"
+    t.integer  "rank"
+    t.integer  "reputation"
+    t.integer  "checking"
+    t.text     "introduction"
+    t.text     "cooperation"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.string   "president"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "address"
-    t.text     "detail"
+    t.integer  "user_id"
   end
 
   create_table "jobdemands", force: :cascade do |t|
@@ -42,8 +55,13 @@ ActiveRecord::Schema.define(version: 20151114145041) do
     t.string   "name"
     t.string   "university"
     t.string   "major"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "interestedfield"
+    t.string   "history"
+    t.string   "achievement"
+    t.string   "hope"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,7 +78,6 @@ ActiveRecord::Schema.define(version: 20151114145041) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "attr"
-    t.string   "type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
