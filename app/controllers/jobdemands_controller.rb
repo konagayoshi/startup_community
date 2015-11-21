@@ -4,7 +4,9 @@ class JobdemandsController < ApplicationController
   # GET /jobdemands
   # GET /jobdemands.json
   def index
-    @jobdemands = Jobdemand.all
+    @q = Jobdemand.search(search_params)
+    @jobdemands = @q
+      .result
   end
 
   # GET /jobdemands/1
@@ -71,4 +73,12 @@ class JobdemandsController < ApplicationController
     def jobdemand_params
       params.require(:jobdemand).permit(:title, :overview, :reponsibility, :competency, :education, :workexperience, :lauguage, :other)
     end
+
+  def search_params
+    search_conditions = %i(
+      title_cont overview_cont reponsibility_cont
+    )
+    params.require(:q).permit(search_conditions)
+  end
 end
+
