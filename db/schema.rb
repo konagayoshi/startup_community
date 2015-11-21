@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20151114145041) do
     t.string   "president"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "address"
+    t.text     "detail"
   end
 
   create_table "jobdemands", force: :cascade do |t|
