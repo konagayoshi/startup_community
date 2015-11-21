@@ -1,19 +1,92 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
 
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Startup Community</a>
+            </div>
+            <div class="search">
+              <p>Search: <input type="text"></p>
+            </div>  
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <span class ="welcome-back">User:
+							              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Admin <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Your profile</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Sign out</a></li>
+                            </ul>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="content" style="padding-top:55px">
+      <div style="border-style: solid; border-width: medium; float: right">  
+        <div id="ava" style="float: right">
+				  <a>
+					  <img src="http://a.wordpress.com/avatar/unknown-128.jpgv">
+				  </a>
+			  </div>
+      
+        <div style="float: right">
+        <p>
+          <strong>Name:</strong>
+          <%= @student.name %>
+        </p>
+        <p>
+          <strong>University:</strong>
+          <%= @student.university %>
+        </p>
+        <p>
+          <strong>Major:</strong>
+          <%= @student.major %>
+        </p>
+        </div>
+      </div>
 <p>
-  <strong>Name:</strong>
-  <%= @student.name %>
+  <strong>Interested Field:</strong>
+  <%= @student.interestedfield %>
 </p>
 
 <p>
-  <strong>University:</strong>
-  <%= @student.university %>
+  <strong>Achievement:</strong>
+  <%= @student.achievement %>
 </p>
 
 <p>
-  <strong>Major:</strong>
-  <%= @student.major %>
+  <strong>History:</strong>
+  <%= @student.history %>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<p>
+  <strong>Hope:</strong>
+  <%= @student.hope %>
+</p>
+</div>
+  
+  <div class="push"></div>
+  <div class="footer">
+    <div id="friend-chat" style="position: absolute; bottom: 0; right: 0; border-style: solid; border-width: medium; padding: 25px">
+	    Your friends
+	    <ul>
+        <li>Nguyen Tuan Anh</li>
+        <li>Hoang Trung Kien</li>
+        <li>Nguyen Lam Duy</li>
+        <li>Nguyen Phuc Loi</li>
+      </ul>
+	    	
+	    	
+	    </div>
+  </div>  
+</body>
+<html>
