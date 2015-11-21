@@ -6,9 +6,9 @@ class SearchsomeControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get searchdetail" do
-    get :searchdetail
-    assert_response :success
-  end
+#  test "should get searchdetail" do
+#    get :searchdetail
+#    assert_response :success
+#  end
 
 end
