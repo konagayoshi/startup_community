@@ -53,26 +53,6 @@
         </p>
         </div>
       </div>
-<p>
-  <strong>Interested Field:</strong>
-  <%= @student.interestedfield %>
-</p>
-
-<p>
-  <strong>Achievement:</strong>
-  <%= @student.achievement %>
-</p>
-
-<p>
-  <strong>History:</strong>
-  <%= @student.history %>
-</p>
-
-<p>
-  <strong>Hope:</strong>
-  <%= @student.hope %>
-</p>
-</div>
   
   <div class="push"></div>
   <div class="footer">
@@ -88,5 +68,8 @@
 	    	
 	    </div>
   </div>  
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
+<% end %>
 </body>
 <html>

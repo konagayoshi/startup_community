@@ -24,3 +24,8 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<% [*(1..20)].each do |idx| %>
+<%= "<br />".html_safe %>
+<% end %>
+<%= link_to 'companies', companies_path %>
+<%= link_to 'students', students_path %>

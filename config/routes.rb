@@ -4,11 +4,17 @@ Rails.application.routes.draw do
   get 'searchsome/searchdetail'
 
   resources :jobdemands
-  devise_for :users
-  get 'user/index'
+#  devise_for :users
+  devise_for :users, :controllers => {
+               :registrations => 'users/registrations'
+             }
 
+  get 'user/index'
   resources :companies
   resources :students
+
+#  get 'students/new/:email' => "students#new"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

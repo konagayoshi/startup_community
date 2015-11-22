@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
@@ -22,22 +26,6 @@
   <div class="field">
     <%= f.label :major %><br>
     <%= f.text_field :major %>
-  </div>
-  <div class="field">
-    <%= f.label :interestedfield %><br>
-    <%= f.text_field :interestedfield %>
-  </div>
-  <div class="field">
-    <%= f.label :history %><br>
-    <%= f.text_field :history %>
-  </div>
-  <div class="field">
-    <%= f.label :achievement %><br>
-    <%= f.text_field :achievement %>
-  </div>
-  <div class="field">
-    <%= f.label :hope %><br>
-    <%= f.text_field :hope %>
   </div>
   <div class="actions">
     <%= f.submit %>

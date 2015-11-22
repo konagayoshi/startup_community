@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
 	before_action :set_student, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@students = Student.all
+	  @students = Student.all
 	end
 
 	def show
@@ -10,7 +10,10 @@ class StudentsController < ApplicationController
 
 
 	def new
-		@student = Student.new
+	  @student = Student.new
+#          @email = current_user.email
+#          @student.email = 'bbbbbb'
+#          @student.save
 	end
 
 
@@ -61,6 +64,6 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-		params.require(:student).permit(:name, :university, :major, :interestedfield, :history, :achievement, :hope)
+		params.require(:student).permit(:name, :university, :major, :interestedfield, :history, :achievement, :hope, :email)
     end
 end
