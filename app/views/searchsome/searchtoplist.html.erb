@@ -1,0 +1,7 @@
+<% content_for(:title) do %>
+  SEARCH
+<% end %>
+
+<%= search_form_for(@q) do |f| %>
+  <%= render 'search_form', f: f %>
+<% end %>

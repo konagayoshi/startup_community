@@ -1,0 +1,26 @@
+<% content_for(:title) do %>
+  SEARCH
+<% end %>
+
+<%= search_form_for(@q) do |f| %>
+  <%= render 'search_form', f: f %>
+<% end %>
+
+<%= render layout: 'shared/search_result_box' do %>
+  <table class="table table-list ">
+  <thead>
+    <tr>
+      <th>TITLE</th>
+      <th>OVERVIEW</th>
+    </tr>
+  </thead>
+  <% @jobdemands.each do |product| %>
+  <tbody>
+  <tr>
+    <td><%= jobdemand.title %> </td>
+    <td><%= jobdemand.overview %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>
+<% end %>

@@ -1,0 +1,27 @@
+<%= render layout: 'shared/search_box' do %>
+
+<div class="row">
+<div class="col-sm-6">
+  <div class="form-group">
+    <label class="col-sm-4 control-label" for="">TITLE</label>
+    <div class="col-sm-8">
+      <%= f.text_field :title_cont %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-4 control-label" for="">OVERVIEW</label>
+    <div class="col-sm-8">
+      <%= f.text_field :overview_cont %>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 row text-center">
+  <button class="btn btn-default btn-left" type="reset" > CLEAR </button>
+  <button class="btn btn-default btn-primary" type="submit"><i class="fa fa-search"></i> SEARCH</button>
+</div>
+
+</div>
+
+<% end %>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'searchsome/searchtoplist'
+
+  get 'searchsome/searchdetail'
+
   resources :jobdemands
   devise_for :users
   get 'user/index'
