@@ -1,3 +1,5 @@
 class Student < ActiveRecord::Base
-  has_one :user, dependent: :destroy
+
+  belongs_to :user, dependent: :destroy
+
 end

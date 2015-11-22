@@ -1,4 +1,4 @@
 class Company < ActiveRecord::Base
   has_many :jobdemand, dependent: :destroy
-  has_one :user, dependent: :destroy
+  belongs_to :user, dependent: :destroy
 end
