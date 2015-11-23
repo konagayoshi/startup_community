@@ -13,4 +13,4 @@ addons:
 before_script:
   - psql -c 'create database startup_community_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
-  - rake db:migrate RAILS_ENV=test
+  - rake db:reset RAILS_ENV=test
