@@ -5,7 +5,7 @@
 <%= form_for :student, url: students_path do |f| %>
   <p>
     <%= f.label :name, "Email" %><br>
-    <%= f.text_field :email, value: current_user.email, :readonly %>
+    <%= f.text_field :email, value: current_user.email %>
   </p>
 
 <p>
@@ -22,27 +22,7 @@
     <%= f.label :major, "Major" %><br>
     <%= f.text_field :major %>
   </p>
-
-<p>    
-  <%= f.label :interestedfield, "Interested Field" %><br>    
-  <%= f.text_field :interestedfield %>    
-</p>    
-
-<p>    
-  <%= f.label :history, "History" %><br>    
-  <%= f.text_field :history %>    
-</p>    
-
-<p>    
-  <%= f.label :achievement, "Achievement" %><br>    
-  <%= f.text_field :achievement %>    
-</p>    
-
-<p>    
-  <%= f.label :hope, "Hope" %><br>    
-  <%= f.text_field :hope %>    
-</p>  
- 
+  
   <p>
     <%= f.submit %>
   </p>
