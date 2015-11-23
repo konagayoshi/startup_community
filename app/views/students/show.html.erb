@@ -53,7 +53,27 @@
         </p>
         </div>
       </div>
-  
+      <p>    
+	<strong>Interested Field:</strong>    
+	<%= @student.interestedfield %>    
+      </p>    
+
+      <p>    
+	<strong>Achievement:</strong>    
+	<%= @student.achievement %>    
+      </p>    
+
+      <p>    
+	<strong>History:</strong>    
+	<%= @student.history %>    
+      </p>    
+
+      <p>    
+	<strong>Hope:</strong>    
+	<%= @student.hope %>    
+      </p>    
+    </div>  
+      
   <div class="push"></div>
   <div class="footer">
     <div id="friend-chat" style="position: absolute; bottom: 0; right: 0; border-style: solid; border-width: medium; padding: 25px">
@@ -67,9 +87,12 @@
 	    	
 	    	
 	    </div>
-  </div>  
-<% if user_signed_in? %>
+  </div>
+  
+  <%= link_to "Edit", edit_student_path %><br />
+  <%= link_to "Search Job", searchsome_searchtoplist_path %><br /> 
+  <% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
-<% end %>
+  <% end %>
 </body>
 <html>

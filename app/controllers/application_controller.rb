@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
     if current_user.attr == 1 then
       student = Student.find_by(email: current_user.email)
       if student == nil then
-        '/students/new'
+        new_student_path
       else
-        student_url(id: student.id)
+        student_path(id: student.id)
       end
     else
       company_path(id: 1)
