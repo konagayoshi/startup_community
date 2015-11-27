@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :universities do
       resources :scholarships
+      resources :admissions
+      resources :news_events
+      resources :study_aboards
+      resources :courses
     end
   get 'searchsome/searchtoplist'
 

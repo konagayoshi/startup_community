@@ -1,0 +1,45 @@
+<%= form_for([@admission.university, @admission]) do |f| %>
+  <% if @admission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admission.errors.count, "error") %> prohibited this admission from being saved:</h2>
+
+      <ul>
+      <% @admission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.datetime_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.datetime_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :requirements %><br>
+    <%= f.text_area :requirements %>
+  </div>
+  <div class="field">
+    <%= f.label :demands %><br>
+    <%= f.number_field :demands %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %><br>
+    <%= f.text_area :contact %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

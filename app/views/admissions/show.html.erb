@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admission.title %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @admission.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @admission.end_time %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @admission.content %>
+</p>
+
+<p>
+  <strong>Requirements:</strong>
+  <%= @admission.requirements %>
+</p>
+
+<p>
+  <strong>Demands:</strong>
+  <%= @admission.demands %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @admission.contact %>
+</p>
+
+<%= link_to 'Edit', edit_university_admission_path(@admission.university, @admission) %> |
+<%= link_to 'Back', university_path(@admission.university) %>

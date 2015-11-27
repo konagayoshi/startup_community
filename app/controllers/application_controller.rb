@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
       else
         student_path(id: student.id)
       end
-    else
-      company_path(id: 1)
+    else 
+      universities_path
     end
   end
 

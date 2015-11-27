@@ -39,6 +39,9 @@
   <strong>Checked:</strong>
   <%= @university.checked %>
 </p>
+<%= link_to 'Edit', edit_university_path(@university) %> |
+<%= link_to 'Back', universities_path %>
+
 
 <h2>Scholarships</h2>
 <% @university.scholarships.each do |scholarship| %>
@@ -46,5 +49,31 @@
 <% end %>
 <br />
 <%= link_to 'New Scholarship', new_university_scholarship_path(@university) %><br />
-<%= link_to 'Edit', edit_university_path(@university) %> |
-<%= link_to 'Back', universities_path %>
+
+<h2>Admissions</h2>
+<% @university.admissions.each do |admission| %>
+<%= link_to admission.title, university_admission_path(admission.university, admission) %>
+<% end %>
+<br />
+<%= link_to 'New Admission', new_university_admission_path(@university) %><br />
+
+<h2>News and Events</h2>
+<% @university.news_events.each do |news_event| %>
+<%= link_to news_event.title, university_news_event_path(news_event.university, news_event) %>
+<% end %>
+<br />
+<%= link_to 'New News&Event', new_university_news_event_path(@university) %><br />
+
+<h2>Study aboards</h2>
+<% @university.study_aboards.each do |study_aboard| %>
+<%= link_to study_aboard.title, university_study_aboard_path(study_aboard.university, study_aboard) %>
+<% end %>
+<br />
+<%= link_to 'New Study Aboard', new_university_study_aboard_path(@university) %><br />
+
+<h2>Courses</h2>
+<% @university.courses.each do |course| %>
+<%= link_to course.name, university_course_path(course.university, course) %>
+<% end %>
+<br />
+<%= link_to 'New Course', new_university_course_path(@university) %><br />

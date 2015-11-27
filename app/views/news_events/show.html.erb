@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @news_event.title %>
+</p>
+
+<p>
+  <strong>Post date:</strong>
+  <%= @news_event.post_date %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @news_event.author %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @news_event.content %>
+</p>
+
+<%= link_to 'Edit', edit_university_news_event_path(@news_event.university, @news_event) %> |
+<%= link_to 'Back', university_path(@news_event.university) %>
