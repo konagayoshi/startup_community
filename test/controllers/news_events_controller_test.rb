@@ -2,6 +2,7 @@ require 'test_helper'
 
 class NewsEventsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:joe)
     @news_event = news_events(:one)
   end
 
