@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @scholarship.title %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @scholarship.sponsor %>
+</p>
+
+<p>
+  <strong>Award:</strong>
+  <%= @scholarship.award %>
+</p>
+
+<p>
+  <strong>Requirements:</strong>
+  <%= @scholarship.requirements %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @scholarship.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @scholarship.end_time %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @scholarship.content %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @scholarship.contact %>
+</p>
+
+<%= link_to 'Edit', edit_university_scholarship_path(@scholarship.university, @scholarship) %> |
+<%= link_to 'Back', university_path(@scholarship.university) %>
+

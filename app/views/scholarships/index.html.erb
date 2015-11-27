@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Scholarships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Sponsor</th>
+      <th>Award</th>
+      <th>Requirements</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Content</th>
+      <th>Contact</th>
+      <th>University</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scholarships.each do |scholarship| %>
+      <tr>
+        <td><%= scholarship.title %></td>
+        <td><%= scholarship.sponsor %></td>
+        <td><%= scholarship.award %></td>
+        <td><%= scholarship.requirements %></td>
+        <td><%= scholarship.start_time %></td>
+        <td><%= scholarship.end_time %></td>
+        <td><%= scholarship.content %></td>
+        <td><%= scholarship.contact %></td>
+        <td><%= scholarship.university %></td>
+        <td><%= link_to 'Show', [scholarship.university, scholarship] %></td>
+        <td><%= link_to 'Edit', edit_university_scholarship_path(scholarship.university, scholarship) %></td>
+        <td><%= link_to 'Destroy', [scholarship.university, scholarship], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scholarship', new_university_scholarship_path %>

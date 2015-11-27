@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @university.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @university.location %>
+</p>
+
+<p>
+  <strong>Introduction:</strong>
+  <%= @university.introduction %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @university.contact %>
+</p>
+
+<p>
+  <strong>Cooperation:</strong>
+  <%= @university.cooperation %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @university.rank %>
+</p>
+
+<p>
+  <strong>Reputation:</strong>
+  <%= @university.reputation %>
+</p>
+
+<p>
+  <strong>Checked:</strong>
+  <%= @university.checked %>
+</p>
+
+<h2>Scholarships</h2>
+<% @university.scholarships.each do |scholarship| %>
+<%= link_to scholarship.title, university_scholarship_path(scholarship.university, scholarship) %>
+<% end %>
+<br />
+<%= link_to 'New Scholarship', new_university_scholarship_path(@university) %><br />
+<%= link_to 'Edit', edit_university_path(@university) %> |
+<%= link_to 'Back', universities_path %>

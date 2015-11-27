@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :universities do
+      resources :scholarships
+    end
   get 'searchsome/searchtoplist'
 
   get 'searchsome/searchdetail'
