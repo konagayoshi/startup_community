@@ -4,7 +4,8 @@ class StudyAboardsControllerTest < ActionController::TestCase
   setup do
     sign_in users(:joe)
     @university = universities(:one)
-    @study_aboard = study_aboards(:one)
+    @study_aboard = @university.study_aboards(:one)
+#    @study_aboard = study_aboards(:one)
   end
 
   test "should get index" do
@@ -27,7 +28,7 @@ class StudyAboardsControllerTest < ActionController::TestCase
   end
 
   test "should show study_aboard" do
-    get :show, id: @study_aboard, :university_id => @university, :university_id => @university
+    get :show, id: @study_aboard, :university_id => @university
     assert_response :success
   end
 

@@ -4,7 +4,8 @@ class AdmissionsControllerTest < ActionController::TestCase
   setup do
     sign_in users(:joe)
     @university = universities(:one)
-    @admission = admissions(:one)
+#    @admission = admissions(:one)
+    @admission = @university.admissions(:one)
   end
 
   test "should get index" do
@@ -43,7 +44,7 @@ class AdmissionsControllerTest < ActionController::TestCase
 
   test "should destroy admission" do
     assert_difference('Admission.count', -1) do
-      delete :destroy, id: @admission
+      delete :destroy, id: @admission, :university_id => @university
     end
 
     assert_redirected_to university_admissions_path

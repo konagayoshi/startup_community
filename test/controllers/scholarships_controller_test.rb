@@ -4,7 +4,8 @@ class ScholarshipsControllerTest < ActionController::TestCase
   setup do
     sign_in users(:joe)
     @university = universities(:one)
-    @scholarship = scholarships(:one)
+    @scholarship = @university.scholarships(:one)
+#    @scholarship = scholarships(:one)
   end
 
   test "should get index" do

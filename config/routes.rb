@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get 'user/index'
   resources :companies
   resources :students
-
 #  get 'students/new/:email' => "students#new"
   
   # The priority is based upon order of creation: first created -> highest priority.
