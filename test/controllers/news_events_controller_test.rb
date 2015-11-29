@@ -3,17 +3,18 @@ require 'test_helper'
 class NewsEventsControllerTest < ActionController::TestCase
   setup do
     sign_in users(:joe)
-    @news_event = news_events(:one)
+    @university = universities(:one)
+    @news_event = @university.news_events(:one)
   end
 
   test "should get index" do
-    get :index
+    get :index, :university_id => @university
     assert_response :success
     assert_not_nil assigns(:news_events)
   end
 
   test "should get new" do
-    get :new
+    get :new, :university_id => @university
     assert_response :success
   end
 
@@ -26,12 +27,12 @@ class NewsEventsControllerTest < ActionController::TestCase
   end
 
   test "should show news_event" do
-    get :show, id: @news_event
+    get :show, id: @news_event, :university_id => @university
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @news_event
+    get :edit, id: @news_event, :university_id => @university
     assert_response :success
   end
 
@@ -42,7 +43,7 @@ class NewsEventsControllerTest < ActionController::TestCase
 
   test "should destroy news_event" do
     assert_difference('NewsEvent.count', -1) do
-      delete :destroy, id: @news_event
+      delete :destroy, id: @news_event, :university_id => @university
     end
 
     assert_redirected_to news_events_path

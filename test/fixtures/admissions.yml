@@ -8,7 +8,7 @@ one:
   requirements: MyText
   demands: 1
   contact: MyText
-  university_id: 
+  university_id: 1
 
 two:
   title: MyString
@@ -18,4 +18,4 @@ two:
   requirements: MyText
   demands: 1
   contact: MyText
-  university_id: 
+  university_id: 1

@@ -3,17 +3,18 @@ require 'test_helper'
 class ScholarshipsControllerTest < ActionController::TestCase
   setup do
     sign_in users(:joe)
+    @university = universities(:one)
     @scholarship = scholarships(:one)
   end
 
   test "should get index" do
-    get :index
+    get :index, :university_id => @university
     assert_response :success
     assert_not_nil assigns(:scholarships)
   end
 
   test "should get new" do
-    get :new
+    get :new, :university_id => @university
     assert_response :success
   end
 
@@ -26,12 +27,12 @@ class ScholarshipsControllerTest < ActionController::TestCase
   end
 
   test "should show scholarship" do
-    get :show, id: @scholarship
+    get :show, id: @scholarship, :university_id => @university
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @scholarship
+    get :edit, id: @scholarship, :university_id => @university
     assert_response :success
   end
 
@@ -42,7 +43,7 @@ class ScholarshipsControllerTest < ActionController::TestCase
 
   test "should destroy scholarship" do
     assert_difference('Scholarship.count', -1) do
-      delete :destroy, id: @scholarship
+      delete :destroy, id: @scholarship, :university_id => @university
     end
 
     assert_redirected_to scholarships_path

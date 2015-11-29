@@ -3,17 +3,18 @@ require 'test_helper'
 class CoursesControllerTest < ActionController::TestCase
   setup do
     sign_in users(:joe)
-    @course = courses(:one)
+    @university = universities(:one)
+    @course = @university.courses(:one)
   end
 
   test "should get index" do
-    get :index
+    get :index, :university_id => @university
     assert_response :success
     assert_not_nil assigns(:courses)
   end
 
   test "should get new" do
-    get :new
+    get :new, :university_id => @university
     assert_response :success
   end
 
@@ -26,12 +27,12 @@ class CoursesControllerTest < ActionController::TestCase
   end
 
   test "should show course" do
-    get :show, id: @course
+    get :show, id: @course, :university_id => @university
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @course
+    get :edit, id: @course, :university_id => @university
     assert_response :success
   end
 
@@ -42,7 +43,7 @@ class CoursesControllerTest < ActionController::TestCase
 
   test "should destroy course" do
     assert_difference('Course.count', -1) do
-      delete :destroy, id: @course
+      delete :destroy, id: @course, :university_id => @university
     end
 
     assert_redirected_to courses_path
