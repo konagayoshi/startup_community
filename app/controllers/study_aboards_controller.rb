@@ -60,7 +60,7 @@ class StudyAboardsController < ApplicationController
     @study_aboard = @university.study_aboards.find(params[:id])
     @study_aboard.destroy
     respond_to do |format|
-      format.html { redirect_to university_study_aboards_url, notice: 'Study aboard was successfully destroyed.' }
+      format.html { redirect_to university_study_aboard_url, notice: 'Study aboard was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

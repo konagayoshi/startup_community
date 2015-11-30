@@ -5,7 +5,7 @@ class AdmissionsControllerTest < ActionController::TestCase
     sign_in users(:joe)
     @university = universities(:one)
 #    @admission = admissions(:one)
-    @admission = @university.admissions(:one)
+    @admission = admissions(:one)
   end
 
   test "should get index" do
@@ -38,8 +38,8 @@ class AdmissionsControllerTest < ActionController::TestCase
   end
 
   test "should update admission" do
-    patch :update, id: @admission, admission: { contact: @admission.contact, content: @admission.content, demands: @admission.demands, end_time: @admission.end_time, requirements: @admission.requirements, start_time: @admission.start_time, title: @admission.title, university_id: @admission.university_id }
-    assert_redirected_to admission_path(assigns(:admission))
+    patch :update, id: @admission, admission: { contact: @admission.contact, content: @admission.content, demands: @admission.demands, end_time: @admission.end_time, requirements: @admission.requirements, start_time: @admission.start_time, title: @admission.title}, :university_id => @university
+    assert_redirected_to university_admission_path(@university, assigns(:admission))
   end
 
   test "should destroy admission" do
@@ -47,6 +47,6 @@ class AdmissionsControllerTest < ActionController::TestCase
       delete :destroy, id: @admission, :university_id => @university
     end
 
-    assert_redirected_to university_admissions_path
+    assert_redirected_to university_admission_path(@university, assigns(:admission))
   end
 end

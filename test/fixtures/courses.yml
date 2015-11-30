@@ -4,10 +4,10 @@ one:
   name: MyString
   instructor: MyString
   content: MyString
-  university_id: 
+  university_id: 1
 
 two:
   name: MyString
   instructor: MyString
   content: MyString
-  university_id: 
+  university_id: 1

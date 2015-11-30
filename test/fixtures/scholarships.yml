@@ -9,7 +9,7 @@ one:
   end_time: 2015-11-27 13:20:58
   content: MyText
   contact: MyText
-  university_id: 
+  university_id: 1
 
 two:
   title: MyString
@@ -20,4 +20,4 @@ two:
   end_time: 2015-11-27 13:20:58
   content: MyText
   contact: MyText
-  university_id: 
+  university_id: 1

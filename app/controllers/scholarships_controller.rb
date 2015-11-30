@@ -60,7 +60,7 @@ class ScholarshipsController < ApplicationController
     @scholarship = @university.scholarships.find(params[:id])
     @scholarship.destroy
     respond_to do |format|
-      format.html { redirect_to university_scholarships_url, notice: 'Scholarship was successfully destroyed.' }
+      format.html { redirect_to university_scholarship_url, notice: 'Scholarship was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -60,7 +60,7 @@ class CoursesController < ApplicationController
     @course = @university.courses.find(params[:id])
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to university_courses_url, notice: 'Course was successfully destroyed.' }
+      format.html { redirect_to university_course_url, notice: 'Course was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

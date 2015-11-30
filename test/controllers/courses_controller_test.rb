@@ -4,7 +4,7 @@ class CoursesControllerTest < ActionController::TestCase
   setup do
     sign_in users(:joe)
     @university = universities(:one)
-    @course = @university.courses(:one)
+    @course = courses(:one)
   end
 
   test "should get index" do
@@ -20,10 +20,10 @@ class CoursesControllerTest < ActionController::TestCase
 
   test "should create course" do
     assert_difference('Course.count') do
-      post :create, course: { content: @course.content, instructor: @course.instructor, name: @course.name, university_id: @course.university_id }
+      post :create, course: { content: @course.content, instructor: @course.instructor, name: @course.name}, :university_id => @university
     end
 
-    assert_redirected_to course_path(assigns(:course))
+    assert_redirected_to university_course_path(@university, assigns(:course))
   end
 
   test "should show course" do
@@ -37,8 +37,8 @@ class CoursesControllerTest < ActionController::TestCase
   end
 
   test "should update course" do
-    patch :update, id: @course, course: { content: @course.content, instructor: @course.instructor, name: @course.name, university_id: @course.university_id }
-    assert_redirected_to course_path(assigns(:course))
+    patch :update, id: @course, course: { content: @course.content, instructor: @course.instructor, name: @course.name}, :university_id => @university
+    assert_redirected_to university_course_path(@university, assigns(:course))
   end
 
   test "should destroy course" do
@@ -46,6 +46,6 @@ class CoursesControllerTest < ActionController::TestCase
       delete :destroy, id: @course, :university_id => @university
     end
 
-    assert_redirected_to courses_path
+    assert_redirected_to university_course_path(@university, assigns(:course))
   end
 end

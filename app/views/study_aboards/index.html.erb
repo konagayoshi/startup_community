@@ -30,8 +30,8 @@
         <td><%= study_aboard.content %></td>
         <td><%= study_aboard.contact %></td>
         <td><%= link_to 'Show', [study_aboard.university, study_aboard] %></td>
-        <td><%= link_to 'Edit', edit_university_scholarship_path(scholarship.university, scholarship) %></td>
-        <td><%= link_to 'Destroy', [scholarship.university, scholarship], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_university_study_aboard_path(study_aboard.university, study_aboard) %></td>
+        <td><%= link_to 'Destroy', [study_aboard.university, study_aboard], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -39,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Scholarship', new_university_study_aboard_path %>
+<%= link_to 'New Study Aboard', new_university_study_aboard_path %>

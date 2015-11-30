@@ -4,8 +4,7 @@ class ScholarshipsControllerTest < ActionController::TestCase
   setup do
     sign_in users(:joe)
     @university = universities(:one)
-    @scholarship = @university.scholarships(:one)
-#    @scholarship = scholarships(:one)
+    @scholarship = scholarships(:one)
   end
 
   test "should get index" do
@@ -21,10 +20,10 @@ class ScholarshipsControllerTest < ActionController::TestCase
 
   test "should create scholarship" do
     assert_difference('Scholarship.count') do
-      post :create, scholarship: { award: @scholarship.award, contact: @scholarship.contact, content: @scholarship.content, end_time: @scholarship.end_time, requirements: @scholarship.requirements, sponsor: @scholarship.sponsor, start_time: @scholarship.start_time, title: @scholarship.title, university_id: @scholarship.university_id }
+      post :create, scholarship: { award: @scholarship.award, contact: @scholarship.contact, content: @scholarship.content, end_time: @scholarship.end_time, requirements: @scholarship.requirements, sponsor: @scholarship.sponsor, start_time: @scholarship.start_time, title: @scholarship.title}, :university_id => @university
     end
 
-    assert_redirected_to scholarship_path(assigns(:scholarship))
+    assert_redirected_to university_scholarship_path(@university, assigns(:scholarship))
   end
 
   test "should show scholarship" do
@@ -38,8 +37,8 @@ class ScholarshipsControllerTest < ActionController::TestCase
   end
 
   test "should update scholarship" do
-    patch :update, id: @scholarship, scholarship: { award: @scholarship.award, contact: @scholarship.contact, content: @scholarship.content, end_time: @scholarship.end_time, requirements: @scholarship.requirements, sponsor: @scholarship.sponsor, start_time: @scholarship.start_time, title: @scholarship.title, university_id: @scholarship.university_id }
-    assert_redirected_to scholarship_path(assigns(:scholarship))
+    patch :update, id: @scholarship, scholarship: { award: @scholarship.award, contact: @scholarship.contact, content: @scholarship.content, end_time: @scholarship.end_time, requirements: @scholarship.requirements, sponsor: @scholarship.sponsor, start_time: @scholarship.start_time, title: @scholarship.title}, :university_id => @university
+    assert_redirected_to university_scholarship_path(@university, assigns(:scholarship))
   end
 
   test "should destroy scholarship" do
@@ -47,6 +46,6 @@ class ScholarshipsControllerTest < ActionController::TestCase
       delete :destroy, id: @scholarship, :university_id => @university
     end
 
-    assert_redirected_to scholarships_path
+    assert_redirected_to university_scholarship_path(@university, assigns(:scholarship))
   end
 end
