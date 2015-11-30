@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @study_aboard.title %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @study_aboard.destination %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @study_aboard.start_time %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @study_aboard.duration %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @study_aboard.sponsor %>
+</p>
+
+<p>
+  <strong>Requirements:</strong>
+  <%= @study_aboard.requirements %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @study_aboard.content %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @study_aboard.contact %>
+</p>
+
+<%= link_to 'Edit', edit_university_study_aboard_path(@study_aboard.university, @study_aboard) %> |
+<%= link_to 'Back', university_path(@study_aboard.university) %>

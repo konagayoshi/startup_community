@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing News Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Post date</th>
+      <th>Author</th>
+      <th>Content</th>
+      <th>University</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @news_events.each do |news_event| %>
+      <tr>
+        <td><%= news_event.title %></td>
+        <td><%= news_event.post_date %></td>
+        <td><%= news_event.author %></td>
+        <td><%= news_event.content %></td>
+        <td><%= news_event.university %></td>
+        <td><%= link_to 'Show', [news_event.university, news_event] %></td>
+        <td><%= link_to 'Edit', edit_university_news_event_path(news_event.university, news_event) %></td>
+        <td><%= link_to 'Destroy', [news_event.university, news_event], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New News event', new_university_news_event_path %>

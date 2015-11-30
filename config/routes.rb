@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :universities do
+      resources :scholarships
+      resources :admissions
+      resources :news_events
+      resources :study_aboards
+      resources :courses
+    end
   get 'searchsome/searchtoplist'
 
   get 'searchsome/searchdetail'
@@ -12,7 +19,6 @@ Rails.application.routes.draw do
   get 'user/index'
   resources :companies
   resources :students
-
 #  get 'students/new/:email' => "students#new"
   
   # The priority is based upon order of creation: first created -> highest priority.

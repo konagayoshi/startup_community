@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  destination: MyString
+  start_time: 2015-11-27 15:09:23
+  duration: 1
+  sponsor: MyString
+  requirements: MyText
+  content: MyText
+  contact: MyText
+  university_id: 1
+
+two:
+  title: MyString
+  destination: MyString
+  start_time: 2015-11-27 15:09:23
+  duration: 1
+  sponsor: MyString
+  requirements: MyText
+  content: MyText
+  contact: MyText
+  university_id: 1

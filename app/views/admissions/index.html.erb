@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Content</th>
+      <th>Requirements</th>
+      <th>Demands</th>
+      <th>Contact</th>
+      <th>University</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admissions.each do |admission| %>
+      <tr>
+        <td><%= admission.title %></td>
+        <td><%= admission.start_time %></td>
+        <td><%= admission.end_time %></td>
+        <td><%= admission.content %></td>
+        <td><%= admission.requirements %></td>
+        <td><%= admission.demands %></td>
+        <td><%= admission.contact %></td>
+        <td><%= link_to 'Show', [admission.university, admission] %></td>
+        <td><%= link_to 'Edit', edit_university_admission_path(admission.university, admission) %></td>
+        <td><%= link_to 'Destroy', [admission.university, admission], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admission', new_university_admission_path %>

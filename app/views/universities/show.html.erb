@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Startup Community</title>
+</head>
+
+<body>  
+  <header>
+    <div class="wrapper">
+      <a href="#"><img src="" alt="LOGO"/></a>
+      
+      <span id="usernav"><a href="#">User<span><img src="" /></span></a></span>
+    </div>
+  </header>
+  
+  <nav>
+    <ul id="n" class="clearfix">
+      <li class="active"><a href="#tab1">Profile</a></li>
+      <li><a href="#tab2">News and Events</a></li>
+      <li><a href="#tab3">Admission</a></li>
+      <li><a href="#tab4">Scholarship</a></li>
+      <li><a href="#tab5">Study aboard</a></li>
+    </ul>
+  </nav>
+  
+  <div id="content" class="clearfix">
+    <section id="tab1" class="tab-content active">
+      <div id="userStats" class="clearfix">
+        <div class="pic">
+          <a href="#"><img src="http://www2.uet.vnu.edu.vn/coltech/sites/uet_logo.png" width="150" height="150" /></a>
+        </div>
+        
+        <div class="data">
+          <h1><%= @university.name %></h1>
+          <h3><%= @university.location %></h3>
+          <h4><a href="http://e.uet.vnu.edu.vn">http://e.uet.vnu.edu.vn</a></h4>
+          <div class="socialMediaLinks">
+            <a href="http://twitter.com" rel="me" target="_blank"><img src="img/twitter.png"/></a>
+            <a href="http://facebook.com" rel="me" target="_blank"><img src="img/facebook.png" /></a>
+          </div>
+          <div class="sep"></div>
+          <ul class="numbers clearfix">
+            <li>Ranking: <strong><%= @university.rank %></strong></li>
+            <li>Reputation: <strong><%= @university.reputation %></strong></li>
+            <li class="nobrdr">Checked: <strong><%= @university.checked %></strong></li>
+          </ul>
+        </div>
+      </div>
+      
+      <h1>About Us:</h1>
+      <p><%= @university.introduction %></p>
+    </section>
+    
+    <section id="tab2" class="tab-content hide">
+      <div>
+        <% @university.news_events.each do |news_event| %>
+        <%= link_to news_event.title, university_news_event_path(news_event.university, news_event) %>
+        <% end %>
+        <br />
+        <%= link_to 'New News&Event', new_university_news_event_path(@university) %><br />
+      </div>
+    </section>
+    <section id="tab3" class="tab-content hide">
+      <div>
+        <% @university.admissions.each do |admission| %>
+        <%= link_to admission.title, university_admission_path(admission.university, admission) %>
+        <% end %>
+        <br />
+        <%= link_to 'New Admission', new_university_admission_path(@university) %><br />
+      </div>
+    </section>
+    <section id="tab4" class="tab-content hide">
+      <div>
+        <% @university.scholarships.each do |scholarship| %>
+        <%= link_to scholarship.title, university_scholarship_path(scholarship.university, scholarship) %>
+        <% end %>
+        <br />
+        <%= link_to 'New Scholarship', new_university_scholarship_path(@university) %><br />
+      </div>
+    </section>
+    <section id="tab5" class="tab-content hide">
+      <div>
+        <% @university.study_aboards.each do |study_aboard| %>
+        <%= link_to study_aboard.title, university_study_aboard_path(study_aboard.university, study_aboard) %>
+        <% end %>
+        <br />
+        <%= link_to 'New Study Aboard', new_university_study_aboard_path(@university) %><br />
+      </div>
+    </section>
+    
+    <section id="right">
+      <div class="gcontent">
+        <div class="head"><h1>Cooperation</h1></div>
+        <div class="boxy">          
+          <div class="cooperate-college">
+            <a href="#"><img src="img/foursquare-badge.png" /><%= @university.cooperation %></a>
+          </div>
+          
+          <span><a href="#">See all…</a></span>
+        </div>
+      </div>
+      
+      <div class="gcontent">
+        <div class="head"><h1>Course available</h1></div>
+        <div class="boxy">
+          <div class="teacherlist clearfix">
+            <% @university.courses.each do |course| %>
+              <a href="#"><img src="img/friend_avatar_default.jpg" width="30" height="30" alt="course-image" /></a><span class="teacher-title"><a href="#"><%= link_to course.name, university_course_path(course.university, course) %></a></span>
+            <% end %>
+            <br />
+            <%= link_to 'New Course', new_university_course_path(@university) %><br />
+          </div>
+          
+          <span><a href="#">See all...</a></span>
+        </div>
+      </div>
+      <div class="gcontent">
+        <div class="head">
+          <h1>Support contact</h1>
+          <p><%= @university.contact %></p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <%= link_to 'Edit', edit_university_path(@university) %> |
+  <%= link_to 'Back', universities_path %>
+</body>
+</html>
+
+
+
+
+<!--
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @university.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @university.location %>
+</p>
+
+<p>
+  <strong>Introduction:</strong>
+  <%= @university.introduction %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @university.contact %>
+</p>
+
+<p>
+  <strong>Cooperation:</strong>
+  <%= @university.cooperation %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @university.rank %>
+</p>
+
+<p>
+  <strong>Reputation:</strong>
+  <%= @university.reputation %>
+</p>
+
+<p>
+  <strong>Checked:</strong>
+  <%= @university.checked %>
+</p>
+<%= link_to 'Edit', edit_university_path(@university) %> |
+<%= link_to 'Back', universities_path %>
+
+
+<h2>Scholarships</h2>
+<% @university.scholarships.each do |scholarship| %>
+<%= link_to scholarship.title, university_scholarship_path(scholarship.university, scholarship) %>
+<% end %>
+<br />
+<%= link_to 'New Scholarship', new_university_scholarship_path(@university) %><br />
+
+<h2>Admissions</h2>
+<% @university.admissions.each do |admission| %>
+<%= link_to admission.title, university_admission_path(admission.university, admission) %>
+<% end %>
+<br />
+<%= link_to 'New Admission', new_university_admission_path(@university) %><br />
+
+<h2>News and Events</h2>
+<% @university.news_events.each do |news_event| %>
+<%= link_to news_event.title, university_news_event_path(news_event.university, news_event) %>
+<% end %>
+<br />
+<%= link_to 'New News&Event', new_university_news_event_path(@university) %><br />
+
+<h2>Study aboards</h2>
+<% @university.study_aboards.each do |study_aboard| %>
+<%= link_to study_aboard.title, university_study_aboard_path(study_aboard.university, study_aboard) %>
+<% end %>
+<br />
+<%= link_to 'New Study Aboard', new_university_study_aboard_path(@university) %><br />
+
+<h2>Courses</h2>
+<% @university.courses.each do |course| %>
+<%= link_to course.name, university_course_path(course.university, course) %>
+<% end %>
+<br />
+<%= link_to 'New Course', new_university_course_path(@university) %><br />
+-->

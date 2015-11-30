@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: MyString
+  location: MyString
+  introduction: MyText
+  contact: MyText
+  cooperation: MyText
+  rank: 1
+  reputation: 1
+  checked: 1
+
+two:
+  id: 2
+  name: MyString
+  location: MyString
+  introduction: MyText
+  contact: MyText
+  cooperation: MyText
+  rank: 1
+  reputation: 1
+  checked: 1

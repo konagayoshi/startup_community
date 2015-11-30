@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  post_date: 2015-11-27 14:30:47
+  author: MyString
+  content: MyText
+  university_id: 1
+
+two:
+  title: MyString
+  post_date: 2015-11-27 14:30:47
+  author: MyString
+  content: MyText
+  university_id: 1
