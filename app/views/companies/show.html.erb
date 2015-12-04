@@ -1,21 +1,101 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Startup Community</title>
+</head>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<body>  
+  <header>
+    <div class="wrapper">
+      <a href="#"><img src="" alt="LOGO"/></a>
+      
+      <span id="usernav"><a href="#">User<span><img src="" /></span></a></span>
+    </div>
+  </header>
+  
+  <nav>
+    <ul id="n" class="clearfix">
+      <li class="col-md-6 active"><a href="#tab1">About us</a></li>
+      <li class="col-md-6"><a href="#tab2">Job demand</a></li>
+    </ul>
+  </nav>
+  
+  <div id="content" class="clearfix">
+    <section id="tab1" class="tab-content active">
+      <div id="userStats" class="clearfix">
+        <div class="pic">
+          <a href="#"><img src="http://3.bp.blogspot.com/-fSRD9SLNzHo/UVwhXCSqjZI/AAAAAAAAF8o/Pg1tdZtcL70/s1600/anonymous_avatar.png" width="150" height="150" /></a>
+        </div>
+        
+        <div class="data">
+          <h1>Company: <%= @company.name %></h1>
+          <h3>President: <%= @company.president %></h3>
+          <h3>Address: <%= @company.address %></h3>
+          <h3>Phone number: <%= @company.phone%></h3>
+          <h3>Email: <%= @company.email %></h3>
+        </div>
+      </div>
+      
+      <h1>About Us:</h1>
+      <p><%= @company.introduction %></p>
+      
+      <div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Manage</h3>
+          </div>
+          
+          <div class="panel-body">
+            <h3><%= link_to 'Edit', edit_company_path(@company) %></h3>
+          </div>
+        </div>
+      </div>
+    </section> <!-- End section about us-->
+    
+    <section id="tab2" class="tab-content hide">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Our Job Demand</h3>
+        </div>
+          
+        <div class="panel-body">
+          <h3><%= link_to 'Click for more details', jobdemands_path %></h3>
+        </div>
+      </div>
+      <div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Manage</h3>
+          </div>
+          
+          <div class="panel-body">
+            <h3><%= link_to 'New Jobdemand', new_jobdemand_path(@jobdemand) %></h3>
+          </div>
+        </div>
+      </div>
+    </section> <!-- End section jobdemand-->
+  </div> <!-- End content -->
+</body>
 
-<p>
-  <strong>President:</strong>
-  <%= @company.president %>
-</p>
+<!--
+  <p>
+    <strong>Name:</strong>
+    <%= @company.name %>
+  </p>
 
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
-<% end %>
+  <p>
+    <strong>President:</strong>
+    <%= @company.president %>
+  </p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %> |
-<%= link_to 'New job demand', new_jobdemand_path(@jobdemand) %> |
-<%= link_to 'List of Jobdemand', jobdemands_path %>
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
+  <% end %>
+
+  <%= link_to 'Edit', edit_company_path(@company) %> |
+  <%= link_to 'Back', companies_path %> |
+  <%= link_to 'New job demand', new_jobdemand_path(@jobdemand) %> |
+  <%= link_to 'List of Jobdemand', jobdemands_path %>
+-->
 
