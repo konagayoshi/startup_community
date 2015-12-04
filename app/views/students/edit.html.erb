@@ -1,25 +1,5 @@
-<div class="container"> 
- <div class="col-md-6">
-  <nav class="navbar navbar-inverse navbar-fixed-top"> 
-   <div class="container-fluid"> 
-    <div class="navbar-header"> 
-     <a class="navbar-brand" href="#">Startup Community</a> 
-    </div> 
-   </div> 
-  </nav> 
- </div> 
- <% [*(1..5)].each do |idx| %> 
- <%= "<br />".html_safe %> 
- <% end %> 
- 
- <div class="col-md-3"> 
-  <div class="panel panel-primary"> 
-   <div class="panel-heading"><h1 class="panel-title">Editing student</h1></div> 
-   <div class="panel-body">
-    <%= render 'form' %>
+<h1>Editing student</h1>
 
-    <%= link_to 'Show', @student %>
-   </div>
-  </div>
- </div>
-</div>
+<%= render 'form' %>
+
+<%= link_to 'Show', @student %>

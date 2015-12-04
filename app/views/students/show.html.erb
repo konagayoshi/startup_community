@@ -17,11 +17,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <span class ="welcome-back">User:
-							              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Admin <span class="caret"></span></a>
+							              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> User <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Your profile</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">Sign out</a></li>
+                            <li><%= link_to "Edit", edit_student_path %></li>
+                            <li><%= link_to "Search Job", searchsome_searchtoplist_path %></li>
+                            <li><a href="#">Language</a></li>
+                            <% if user_signed_in? %>
+                            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
                             </ul>
                         </span>
                     </li>
@@ -30,69 +32,78 @@
         </div>
     </nav>
     
-    <div id="content" style="padding-top:55px">
-      <div style="border-style: solid; border-width: medium; float: right">  
-        <div id="ava" style="float: right">
-				  <a>
-					  <img src="http://a.wordpress.com/avatar/unknown-128.jpgv">
-				  </a>
-			  </div>
-      
-        <div style="float: right">
-        <p>
-          <strong>Name:</strong>
-          <%= @student.name %>
-        </p>
-        <p>
-          <strong>University:</strong>
-          <%= @student.university %>
-        </p>
-        <p>
-          <strong>Major:</strong>
-          <%= @student.major %>
-        </p>
-        </div>
-      </div>
-      <p>    
-	<strong>Interested Field:</strong>    
-	<%= @student.interestedfield %>    
-      </p>    
-
-      <p>    
-	<strong>Achievement:</strong>    
-	<%= @student.achievement %>    
-      </p>    
-
-      <p>    
-	<strong>History:</strong>    
-	<%= @student.history %>    
-      </p>    
-
-      <p>    
-	<strong>Hope:</strong>    
-	<%= @student.hope %>    
-      </p>    
-    </div>  
-      
-  <div class="push"></div>
-  <div class="footer">
-    <div id="friend-chat" style="position: absolute; bottom: 0; right: 0; border-style: solid; border-width: medium; padding: 25px">
-	    Your friends
-	    <ul>
-        <li>Nguyen Tuan Anh</li>
-        <li>Hoang Trung Kien</li>
-        <li>Nguyen Lam Duy</li>
-        <li>Nguyen Phuc Loi</li>
-      </ul>
-	    	
-	    	
-	    </div>
-  </div>
-  
-  <%= link_to "Edit", edit_student_path %><br />
-  <%= link_to "Search Job", searchsome_searchtoplist_path %><br /> 
-  <% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
+    <div id="bg"></div>
+    <div id="centerWrapper"> 
+      <div id="wrapper"> 
+        
+        <header>
+          <div id="cover"><img src="http://www.hdwallpapersinn.com/wp-content/uploads/2014/11/Beautiful-Snowy-Mountain-High-Definition-Wallpaper-HD-Resolution.jpg" alt="cover" /></div>  
+          <div id="coverlay"></div>
+          <div id="pbWrapper"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c40.0.160.160/p160x160/10342421_879097678773322_5665729191311530173_n.jpg?oh=8cfe359ac62aee96129419373ddb230f&oe=56480D66&__gda__=1448452897_1508da286f430f722ace9ef127a6d56c" alt="Avatar" /></div>
+          <div id="info">
+            <strong><%= @student.name %></strong> <hr />
+            <p>Date of birth: <%= @student.date_of_birth %> | Country: <%= @student.country %></p>
+            <hr />
+            <p>Major: <%= @student.major %> | University: <%= @student.university %></p>
+            <hr />
+          </div>
+        </header>
+        
+        <nav id="pageNav">   
+          <ul>
+            <li><a href="#">Friends</a></li>
+            <li><a href="#">Following company</a></li>
+            <li><a href="#">Following university</a></li>
+            <li><a href="#">Desire jobs</a></li>
+          </ul>
+        </nav>
+        
+        <main>
+          <nav id="mainNav" role="main">
+            <ul id="tabs" class="tab-group">
+              <li class="active"><a href="#about">About</a></li>  
+              <li><a href="#moreinformation">More information</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul> 
+          </nav> 
+          
+          <div id="content"> 
+            <article id="about" class="tab-content active">
+              <section>
+                <h2>History</h2>
+                <pre><%= @student.history %></pre>
+                </p>
+              </section>
+              <section>
+                <h2>Achivement</h2>
+                <pre><%= @student.achievement %></pre>
+              </section>
+              <section>
+                <h2>Knowledge</h2>
+                <pre><%= @student.knowledge %></pre>
+              </section>
+            </article>
+            <article id="moreinformation" class="tab-content hide">
+              <h3>Favorite Quote:</h3>
+              <pre><%= @student.quote %></pre>
+              <hr>
+              <h3>Self introduction:</h3>
+              <pre><%= @student.about %></pre>
+            </article>  
+            <article id="contact" class="tab-content hide">
+              <h3>Email:</h3>
+              <%= @student.email %>
+              <hr>
+              <h3>Phone number / Fax:</h3>
+              <%= @student.phone %>
+            </article>  
+          </div>  
+        </main> 
+      </div> 
+    </div>
+    
+    
   <% end %>
-</body>
-<html>
+  </body>
+</html>
+
