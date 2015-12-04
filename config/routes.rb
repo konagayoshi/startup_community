@@ -16,6 +16,9 @@ Rails.application.routes.draw do
                :registrations => 'users/registrations'
              }
 
+  resources :users do 
+    resources :universities
+  end
   get 'user/index'
   resources :companies
   resources :students

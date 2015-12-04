@@ -23,13 +23,16 @@
         <td><%= news_event.content %></td>
         <td><%= news_event.university %></td>
         <td><%= link_to 'Show', [news_event.university, news_event] %></td>
+        <% if current_user && current_user.id == news_event.university.user_id %>
         <td><%= link_to 'Edit', edit_university_news_event_path(news_event.university, news_event) %></td>
         <td><%= link_to 'Destroy', [news_event.university, news_event], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user && current_user.id == @university.user_id %>
 <%= link_to 'New News event', new_university_news_event_path %>
+<% end %>

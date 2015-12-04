@@ -39,7 +39,7 @@
   <strong>Contact:</strong>
   <%= @scholarship.contact %>
 </p>
-
+<% if current_user && current_user.id == @scholarship.university.user_id %>
 <%= link_to 'Edit', edit_university_scholarship_path(@scholarship.university, @scholarship) %> |
 <%= link_to 'Back', university_path(@scholarship.university) %>
-
+<% end %>

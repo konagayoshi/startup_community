@@ -30,8 +30,10 @@
         <td><%= study_aboard.content %></td>
         <td><%= study_aboard.contact %></td>
         <td><%= link_to 'Show', [study_aboard.university, study_aboard] %></td>
+        <% if current_user && current_user.id == study_aboard.university.user_id %>
         <td><%= link_to 'Edit', edit_university_study_aboard_path(study_aboard.university, study_aboard) %></td>
         <td><%= link_to 'Destroy', [study_aboard.university, study_aboard], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -39,4 +41,6 @@
 
 <br>
 
+<% if current_user && current_user.id == @university.user_id %>
 <%= link_to 'New Study Aboard', new_university_study_aboard_path %>
+<% end %>

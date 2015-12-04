@@ -40,5 +40,7 @@
   <%= @study_aboard.contact %>
 </p>
 
+<% if current_user && current_user.id == @study_aboard.university.user_id %>
 <%= link_to 'Edit', edit_university_study_aboard_path(@study_aboard.university, @study_aboard) %> |
 <%= link_to 'Back', university_path(@study_aboard.university) %>
+<% end %>

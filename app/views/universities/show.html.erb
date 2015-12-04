@@ -10,7 +10,7 @@
     <div class="wrapper">
       <a href="#"><img src="" alt="LOGO"/></a>
       
-      <span id="usernav"><a href="#">User<span><img src="" /></span></a></span>
+      <span id="usernav"><%= link_to 'User', user_index_path(current_user) %><br /><img src="" /></span></a></span>
     </div>
   </header>
   
@@ -58,7 +58,9 @@
         <%= link_to news_event.title, university_news_event_path(news_event.university, news_event) %>
         <% end %>
         <br />
+        <% if current_user && current_user.id == @university.user_id %>
         <%= link_to 'New News&Event', new_university_news_event_path(@university) %><br />
+        <% end %>
       </div>
     </section>
     <section id="tab3" class="tab-content hide">
@@ -67,7 +69,9 @@
         <%= link_to admission.title, university_admission_path(admission.university, admission) %>
         <% end %>
         <br />
+        <% if current_user && current_user.id == @university.user_id %>
         <%= link_to 'New Admission', new_university_admission_path(@university) %><br />
+        <% end %>
       </div>
     </section>
     <section id="tab4" class="tab-content hide">
@@ -76,7 +80,9 @@
         <%= link_to scholarship.title, university_scholarship_path(scholarship.university, scholarship) %>
         <% end %>
         <br />
+        <% if current_user && current_user.id == @university.user_id %>
         <%= link_to 'New Scholarship', new_university_scholarship_path(@university) %><br />
+        <% end %>
       </div>
     </section>
     <section id="tab5" class="tab-content hide">
@@ -85,7 +91,9 @@
         <%= link_to study_aboard.title, university_study_aboard_path(study_aboard.university, study_aboard) %>
         <% end %>
         <br />
+        <% if current_user && current_user.id == @university.user_id %>
         <%= link_to 'New Study Aboard', new_university_study_aboard_path(@university) %><br />
+        <% end %>
       </div>
     </section>
     
@@ -109,7 +117,9 @@
               <a href="#"><img src="img/friend_avatar_default.jpg" width="30" height="30" alt="course-image" /></a><span class="teacher-title"><a href="#"><%= link_to course.name, university_course_path(course.university, course) %></a></span>
             <% end %>
             <br />
+            <% if current_user && current_user.id == @university.user_id %>
             <%= link_to 'New Course', new_university_course_path(@university) %><br />
+            <% end %>
           </div>
           
           <span><a href="#">See all...</a></span>
@@ -123,92 +133,9 @@
       </div>
     </section>
   </div>
+  <% if current_user && current_user.id == @university.user_id %>
   <%= link_to 'Edit', edit_university_path(@university) %> |
   <%= link_to 'Back', universities_path %>
+  <% end %>
 </body>
 </html>
-
-
-
-
-<!--
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @university.name %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @university.location %>
-</p>
-
-<p>
-  <strong>Introduction:</strong>
-  <%= @university.introduction %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @university.contact %>
-</p>
-
-<p>
-  <strong>Cooperation:</strong>
-  <%= @university.cooperation %>
-</p>
-
-<p>
-  <strong>Rank:</strong>
-  <%= @university.rank %>
-</p>
-
-<p>
-  <strong>Reputation:</strong>
-  <%= @university.reputation %>
-</p>
-
-<p>
-  <strong>Checked:</strong>
-  <%= @university.checked %>
-</p>
-<%= link_to 'Edit', edit_university_path(@university) %> |
-<%= link_to 'Back', universities_path %>
-
-
-<h2>Scholarships</h2>
-<% @university.scholarships.each do |scholarship| %>
-<%= link_to scholarship.title, university_scholarship_path(scholarship.university, scholarship) %>
-<% end %>
-<br />
-<%= link_to 'New Scholarship', new_university_scholarship_path(@university) %><br />
-
-<h2>Admissions</h2>
-<% @university.admissions.each do |admission| %>
-<%= link_to admission.title, university_admission_path(admission.university, admission) %>
-<% end %>
-<br />
-<%= link_to 'New Admission', new_university_admission_path(@university) %><br />
-
-<h2>News and Events</h2>
-<% @university.news_events.each do |news_event| %>
-<%= link_to news_event.title, university_news_event_path(news_event.university, news_event) %>
-<% end %>
-<br />
-<%= link_to 'New News&Event', new_university_news_event_path(@university) %><br />
-
-<h2>Study aboards</h2>
-<% @university.study_aboards.each do |study_aboard| %>
-<%= link_to study_aboard.title, university_study_aboard_path(study_aboard.university, study_aboard) %>
-<% end %>
-<br />
-<%= link_to 'New Study Aboard', new_university_study_aboard_path(@university) %><br />
-
-<h2>Courses</h2>
-<% @university.courses.each do |course| %>
-<%= link_to course.name, university_course_path(course.university, course) %>
-<% end %>
-<br />
-<%= link_to 'New Course', new_university_course_path(@university) %><br />
--->

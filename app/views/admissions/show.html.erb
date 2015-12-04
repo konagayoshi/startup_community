@@ -34,6 +34,7 @@
   <strong>Contact:</strong>
   <%= @admission.contact %>
 </p>
-
+<% if current_user && current_user.id == @admission.university.user_id %>
 <%= link_to 'Edit', edit_university_admission_path(@admission.university, @admission) %> |
 <%= link_to 'Back', university_path(@admission.university) %>
+<% end %>

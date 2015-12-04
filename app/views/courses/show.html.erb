@@ -15,6 +15,7 @@
   <%= @course.content %>
 </p>
 
-
+<% if current_user && current_user.id == @course.university.user_id %>
 <%= link_to 'Edit', edit_university_course_path(@course.university, @course) %> |
 <%= link_to 'Back', university_path(@course.university) %>
+<% end %>

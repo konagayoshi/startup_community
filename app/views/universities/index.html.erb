@@ -29,8 +29,10 @@
         <td><%= university.reputation %></td>
         <td><%= university.checked %></td>
         <td><%= link_to 'Show', university %></td>
+        <% if current_user && current_user.id == university.user_id %>
         <td><%= link_to 'Edit', edit_university_path(university) %></td>
         <td><%= link_to 'Destroy', university, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

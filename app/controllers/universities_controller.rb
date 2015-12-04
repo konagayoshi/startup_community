@@ -1,4 +1,5 @@
 class UniversitiesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_university, only: [:show, :edit, :update, :destroy]
 
   # GET /universities
@@ -24,6 +25,7 @@ class UniversitiesController < ApplicationController
   # POST /universities
   # POST /universities.json
   def create
+    params[:university][:user_id] = current_user.id
     @university = University.new(university_params)
 
     respond_to do |format|
@@ -66,9 +68,8 @@ class UniversitiesController < ApplicationController
     def set_university
       @university = University.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def university_params
-      params.require(:university).permit(:name, :location, :introduction, :contact, :cooperation, :rank, :reputation, :checked)
+      params.require(:university).permit(:name, :location, :introduction, :contact, :cooperation, :rank, :reputation, :checked, :user_id)
     end
 end

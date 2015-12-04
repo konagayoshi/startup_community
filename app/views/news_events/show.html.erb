@@ -20,5 +20,7 @@
   <%= @news_event.content %>
 </p>
 
+<% if current_user && current_user.id == @news_event.university.user_id %>
 <%= link_to 'Edit', edit_university_news_event_path(@news_event.university, @news_event) %> |
 <%= link_to 'Back', university_path(@news_event.university) %>
+<% end %>

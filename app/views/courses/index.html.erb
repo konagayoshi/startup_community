@@ -20,13 +20,16 @@
         <td><%= course.instructor %></td>
         <td><%= course.content %></td>
         <td><%= link_to 'Show', [course.university, course] %></td>
+        <% if current_user && current_user.id == course.university.user_id %>
         <td><%= link_to 'Edit', edit_university_course_path(course.university, course) %></td>
         <td><%= link_to 'Destroy', [course.university, course], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user && current_user.id == @university.user_id %>
 <%= link_to 'New Course', new_university_course_path %>
+<% end %>

@@ -30,13 +30,16 @@
         <td><%= scholarship.content %></td>
         <td><%= scholarship.contact %></td>
         <td><%= link_to 'Show', [scholarship.university, scholarship] %></td>
+        <% if current_user && current_user.id == scholarship.university.user_id %>
         <td><%= link_to 'Edit', edit_university_scholarship_path(scholarship.university, scholarship) %></td>
         <td><%= link_to 'Destroy', [scholarship.university, scholarship], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user && current_user.id == @university.user_id %>
 <%= link_to 'New Scholarship', new_university_scholarship_path %>
+<% end %>
