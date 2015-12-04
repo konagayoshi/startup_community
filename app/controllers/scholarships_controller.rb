@@ -1,6 +1,7 @@
 class ScholarshipsController < ApplicationController
   before_action :set_scholarship, only: [:show, :edit, :update, :destroy]
   before_filter :load_university
+  before_filter :check_university, :except => [:show,:index]
   # GET /scholarships
   # GET /scholarships.json
   def index
@@ -78,5 +79,11 @@ class ScholarshipsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def scholarship_params
       params.require(:scholarship).permit(:title, :sponsor, :award, :requirements, :start_time, :end_time, :content, :contact, :university_id)
+    end
+    def check_university
+         @university = University.find(params[:university_id])
+        unless (current_user.university.id == @university.id )
+          redirect_to @university, :alert => "Access denied."
+         end
     end
 end

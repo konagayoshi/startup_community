@@ -1,6 +1,8 @@
 class UniversitiesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_university, only: [:show, :edit, :update, :destroy]
+  before_filter :check_university, :except => [:show,:index,:new,:create]
+  
 
   # GET /universities
   # GET /universities.json
@@ -15,7 +17,7 @@ class UniversitiesController < ApplicationController
 
   # GET /universities/new
   def new
-    @university = University.new
+    @university = current_user.build_university 
   end
 
   # GET /universities/1/edit
@@ -71,5 +73,11 @@ class UniversitiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def university_params
       params.require(:university).permit(:name, :location, :introduction, :contact, :cooperation, :rank, :reputation, :checked, :user_id)
+    end
+    def check_university
+        @university = University.find(params[:id])
+        unless (current_user.id == @university.user_id )
+          redirect_to root_path, :alert => "Access denied."
+         end
     end
 end

@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_filter :load_university
-  # GET /courses
+  before_filter :check_university, :except => [:show,:index]
   # GET /courses.json
   def index
     @courses = @university.courses
@@ -78,5 +78,11 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params.require(:course).permit(:name, :instructor, :content, :university_id)
+    end
+    def check_university
+         @university = University.find(params[:university_id])
+        unless (current_user.university.id == @university.id )
+          redirect_to @university, :alert => "Access denied."
+         end
     end
 end

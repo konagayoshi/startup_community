@@ -1,6 +1,7 @@
 class NewsEventsController < ApplicationController
   before_action :set_news_event, only: [:show, :edit, :update, :destroy]
   before_filter :load_university
+  before_filter :check_university,:except => [:show,:index]
   # GET /news_events
   # GET /news_events.json
   def index
@@ -78,5 +79,11 @@ class NewsEventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_event_params
       params.require(:news_event).permit(:title, :post_date, :author, :content, :university_id)
+    end
+    def check_university
+         @university = University.find(params[:university_id])
+        unless (current_user.university.id == @university.id )
+          redirect_to @university, :alert => "Access denied."
+         end
     end
 end

@@ -1,6 +1,7 @@
 class AdmissionsController < ApplicationController
   before_action :set_admission, only: [:show, :edit, :update, :destroy]
   before_filter :load_university
+  before_filter :check_university,:except => [:show,:index]
   # GET /admissions
   # GET /admissions.json
   def index
@@ -79,4 +80,11 @@ class AdmissionsController < ApplicationController
     def admission_params
       params.require(:admission).permit(:title, :start_time, :end_time, :content, :requirements, :demands, :contact, :university_id)
     end
+    def check_university
+         @university = University.find(params[:university_id])
+        unless (current_user.university.id == @university.id )
+          redirect_to @university, :alert => "Access denied."
+         end
+    end
+    
 end

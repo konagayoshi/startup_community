@@ -1,6 +1,7 @@
 class StudyAboardsController < ApplicationController
   before_action :set_study_aboard, only: [:show, :edit, :update, :destroy]
   before_filter :load_university
+  before_filter :check_university, :except => :show
   # GET /study_aboards
   # GET /study_aboards.json
   def index
@@ -78,5 +79,11 @@ class StudyAboardsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_aboard_params
       params.require(:study_aboard).permit(:title, :destination, :start_time, :duration, :sponsor, :requirements, :content, :contact, :university_id)
+    end
+    def check_university
+         @university = University.find(params[:university_id])
+        unless (current_user.university.id == @university.id )
+          redirect_to @university, :alert => "Access denied."
+         end
     end
 end
