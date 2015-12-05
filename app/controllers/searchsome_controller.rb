@@ -1,3 +1,5 @@
+require 'ransack'
+
 class SearchsomeController < ApplicationController
   def searchtoplist
 
