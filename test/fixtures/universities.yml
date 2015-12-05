@@ -10,7 +10,7 @@ one:
   rank: 1
   reputation: 1
   checked: 1
-
+  user: joe
 two:
   id: 2
   name: MyString
@@ -21,3 +21,4 @@ two:
   rank: 1
   reputation: 1
   checked: 1
+  user: joe

@@ -84,6 +84,6 @@ class NewsEventsController < ApplicationController
          @university = University.find(params[:university_id])
         unless (current_user.university.id == @university.id )
           redirect_to @university, :alert => "Access denied."
-         end
+        end
     end
 end

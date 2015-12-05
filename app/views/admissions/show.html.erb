@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+  <%= image_tag(@admission.picture_url, :width => 600) if @admission.picture.present? %>
+</p>
 <p>
   <strong>Title:</strong>
   <%= @admission.title %>
@@ -34,6 +36,8 @@
   <strong>Contact:</strong>
   <%= @admission.contact %>
 </p>
+
+
 <% if current_user && current_user.id == @admission.university.user_id %>
 <%= link_to 'Edit', edit_university_admission_path(@admission.university, @admission) %> |
 <%= link_to 'Back', university_path(@admission.university) %>

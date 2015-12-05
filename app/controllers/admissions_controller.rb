@@ -78,7 +78,7 @@ class AdmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admission_params
-      params.require(:admission).permit(:title, :start_time, :end_time, :content, :requirements, :demands, :contact, :university_id)
+      params.require(:admission).permit(:title, :start_time, :end_time, :content, :requirements, :demands, :contact, :university_id,:picture)
     end
     def check_university
          @university = University.find(params[:university_id])
