@@ -1,11 +1,17 @@
+require 'ransack'
+
 class SearchsomeController < ApplicationController
   def searchtoplist
-    @q = Jobdemand.search
+
+    @q = Jobdemand.search(params[:search])
+
   end
 
   def searchdetail
  
   end
+
+ private
 
   def search_params
     search_conditions = %i(

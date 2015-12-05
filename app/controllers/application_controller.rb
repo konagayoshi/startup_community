@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
       else
         student_path(id: student.id)
       end
+    elsif current_user.attr == 2 then
+      companies_path
     else 
       universities_path
     end
