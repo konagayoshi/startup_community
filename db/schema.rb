@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20151127083638) do
     t.string   "president"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "address"
+    t.text     "detail"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -94,13 +96,13 @@ ActiveRecord::Schema.define(version: 20151127083638) do
     t.string   "name"
     t.string   "university"
     t.string   "major"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "email"
     t.string   "interestedfield"
     t.string   "history"
     t.string   "achievement"
     t.string   "hope"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "email"
   end
 
   create_table "study_aboards", force: :cascade do |t|
