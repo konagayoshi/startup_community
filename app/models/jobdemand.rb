@@ -3,11 +3,11 @@ class Jobdemand < ActiveRecord::Base
     
     validates :title, :overview, presence: true
 
-  def self.ransackabole_attributes(auth_oject = nil)
-    %w(tilte overview)
+  def self.ransackable_attributes(auth_oject = nil)
+    %w(title overview)
   end
 
-  def self.sackable_attributes(auth_object = nil)
+  def self.ransackable_associations(auth_object = nil)
     []
   end
 
