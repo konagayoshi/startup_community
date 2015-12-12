@@ -1,7 +1,7 @@
 class SearchsomeController < ApplicationController
   def searchtoplist
 
-    @q = Jobdemand.search(params[:search])
+    @q = Jobdemand.search
 
   end
 
