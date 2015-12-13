@@ -51,7 +51,7 @@ group :development, :test do
   gem 'spring'
 
 # Ransake is for adding complex search function. 
-  gem 'ransack'
+#  gem 'ransack'
 
 end
 

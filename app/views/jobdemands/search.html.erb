@@ -2,7 +2,7 @@
   SEARCH
 <% end %>
 
-<%= search_form_for(@q) do |f| %>
+<%= form_for(@jobdemand,  html: { method: :get, class: 'form-horizontal', role: 'form'}) do |f| %>
   <%= render 'search_form', f: f %>
 <% end %>
 
@@ -14,7 +14,7 @@
       <th>OVERVIEW</th>
     </tr>
   </thead>
-  <% @jobdemands.each do |product| %>
+  <% @jobdemands.each do |jobdemand| %>
   <tbody>
   <tr>
     <td><%= jobdemand.title %> </td>

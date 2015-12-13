@@ -63,6 +63,18 @@ class JobdemandsController < ApplicationController
     end
   end
 
+  def searchtoplist
+    @jobdemand = Search::Jobdemand.new
+  end
+
+  def search
+    @jobdemand = Search::Jobdemand.new(search_params)
+    @jobdemands = @jobdemand
+      .matches
+      .order(title: :asc)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jobdemand
@@ -73,12 +85,11 @@ class JobdemandsController < ApplicationController
     def jobdemand_params
       params.require(:jobdemand).permit(:title, :overview, :reponsibility, :competency, :education, :workexperience, :lauguage, :other)
     end
-
+ 
   def search_params
-    search_conditions = %i(
-      title_cont overview_cont reponsibility_cont
-    )
-    params.require(:q).permit(search_conditions)
+      params
+      .require(:search_jobdemand)
+      .permit(Search::Jobdemand::ATTRIBUTES)
   end
 end
 
