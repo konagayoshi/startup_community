@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       resources :courses
     end
   get 'searchsome/searchtoplist' => "jobdemands#searchtoplist"
-  get 'searchsome/searchdetail' => "jobdemands#searchdetail" 
 
   resources :jobdemands, only: [:index] do
     collection do
