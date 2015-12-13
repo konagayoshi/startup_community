@@ -24,10 +24,10 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_redirected_to company_path(assigns(:company))
   end
 
-  test "should show company" do
-    get :show, id: @company
-    assert_response :success
-  end
+#  test "should show company" do
+#    get :show, id: @company
+#    assert_response :success
+#  end
 
   test "should get edit" do
     get :edit, id: @company
