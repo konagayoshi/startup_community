@@ -33,6 +33,12 @@ users = [
     password_confirmation: "nguyenphucloi193",
     attr: 1
   },  
+  {
+   email: "hikarushinomiya2080085@gmail.com",
+   password: "shinomiya",
+   password_confirmation: "shinomiya",
+   attr: 3
+  }
 ]
 User.create!(users)
 
@@ -45,7 +51,8 @@ students = [
     history: "2015/11 Participate Techcrunch hackathon",
     achievement: "2014/10 Completed Yokohama shonan marathon race",
     hope: "I want to work oversea in the future",
-    email: "konagayoshi@hotmail.com"
+    email: "konagayoshi@hotmail.com",
+    user_id: 1
   },
   {
     name: "Hoang Trung Kien",
@@ -55,7 +62,8 @@ students = [
     history: "2012 Participate National Methematic Olympiad",
     achievement: "2012 4th award",
     hope: "I want to work oversea in the future",
-    email: "kien.isp15@hotmail.com"
+    email: "kien.isp15@hotmail.com",
+    user_id: 4
   },
   {
     name: "Nguyen Phuc Loi",
@@ -65,7 +73,8 @@ students = [
     history: "2012 Vietnam National Olympiad Informatics",
     achievement: "2012 incentive award",
     hope: "Work oversea in the future",
-    email: "nguyenphucloi193@gmail.com"
+    email: "nguyenphucloi193@gmail.com",
+    user_id: 5
   }  
 ]
 Student.create!(students)
@@ -83,7 +92,8 @@ International Student Section  e-mail : ryugaku@of.miyazaki-u.ac.jp",
  cooperation: "",
  rank: 3,
  reputation: 3,
- checked: 0
+ checked: 0,
+ user_id: 3
   },
   {
     id: 2,
@@ -95,10 +105,21 @@ International Student Section e-mail : ryugaku@of.miyazaki-u.ac.jp",
     cooperation: "",
     rank: 3,
     reputation: 3,
-    checked: 0
+    checked: 0,
+    user_id: 6
   },  
 ]
 University.create!(universities)
+
+companies = [
+ {
+  id: 1,
+  name: "AIIT Company",
+  president: "Hikaru Shinomiya",
+  user_id: 2
+ }
+]
+Company.create!(companies)
 
 jobdemands = [
   {
@@ -120,7 +141,8 @@ Solid understanding of mechanical systems and design principles.
 Analytic and problem solving ability
 Experience suing CAD",
     lauguage: "English",
-    other: ""
+    other: "",
+    company_id: 1
   },
   {
     id: 2, 
@@ -139,7 +161,8 @@ Must be able to obtain a DoD Security Clearance
 Strong written and verbal communication skills
 Willingness to travel to customer sites to assist with installs",
     lauguage: "English",
-    other: "AIS is an equal opportunity employer and considers qualified applicants for employment without regard to race, color, creed, religion, national origin, sex, sexual orientation, gender identity and expression, age, disability, eligible veteran status, or any other protected factor. "
+    other: "AIS is an equal opportunity employer and considers qualified applicants for employment without regard to race, color, creed, religion, national origin, sex, sexual orientation, gender identity and expression, age, disability, eligible veteran status, or any other protected factor. ",
+    company_id: 1
   },  
   {
     id: 3, 
@@ -156,7 +179,8 @@ Participate as requested in advisory/quality control capacity during assembly an
 Knowledge of analog and digital circuitry; common communications protocols; and ability to troubleshoot to component level.
 Familiarity with typical industry standards requirements: National Electrical Code, NFPA79, CE, SEMI-S2/S8, etc.",
     lauguage: "English",
-    other: ""
+    other: "",
+    company_id: 1
   },  
 ]
 Jobdemand.create!(jobdemands)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127083638) do
+ActiveRecord::Schema.define(version: 20160211072206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(version: 20151127083638) do
     t.string   "president"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "address"
-    t.text     "detail"
+    t.integer  "user_id"
   end
+
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -62,7 +63,10 @@ ActiveRecord::Schema.define(version: 20151127083638) do
     t.text     "other"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "company_id"
   end
+
+  add_index "jobdemands", ["company_id"], name: "index_jobdemands_on_company_id", using: :btree
 
   create_table "news_events", force: :cascade do |t|
     t.string   "title"
@@ -96,14 +100,17 @@ ActiveRecord::Schema.define(version: 20151127083638) do
     t.string   "name"
     t.string   "university"
     t.string   "major"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "email"
     t.string   "interestedfield"
     t.string   "history"
     t.string   "achievement"
     t.string   "hope"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "email"
+    t.integer  "user_id"
   end
+
+  add_index "students", ["user_id"], name: "index_students_on_user_id", using: :btree
 
   create_table "study_aboards", force: :cascade do |t|
     t.string   "title"
@@ -132,7 +139,10 @@ ActiveRecord::Schema.define(version: 20151127083638) do
     t.integer  "checked"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
   end
+
+  add_index "universities", ["user_id"], name: "index_universities_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -154,8 +164,12 @@ ActiveRecord::Schema.define(version: 20151127083638) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "admissions", "universities"
+  add_foreign_key "companies", "users"
   add_foreign_key "courses", "universities"
+  add_foreign_key "jobdemands", "companies"
   add_foreign_key "news_events", "universities"
   add_foreign_key "scholarships", "universities"
+  add_foreign_key "students", "users"
   add_foreign_key "study_aboards", "universities"
+  add_foreign_key "universities", "users"
 end
