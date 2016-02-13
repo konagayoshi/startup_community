@@ -81,7 +81,6 @@ Student.create!(students)
 
 universities = [
   {
- id: 1,
  name: "University of Miyazaki",
  location: "1-1, Gakuen Kibanadai-nishi, Miyazaki-shi, 889-2192",
  introduction: "Our institutional goal states that UOM will commit itself to the preparation of young individuals able to respond to the ever-changing demands of the 21st century by both inheriting and developing science and culture as the fruit of human wisdom, by exploring the profound truths of science, by preserving the natural environment that is the origin of all life, and by creating interdisciplinary programs in life science that will serve the welfare and prosperity of all humanity.",
@@ -96,7 +95,6 @@ International Student Section  e-mail : ryugaku@of.miyazaki-u.ac.jp",
  user_id: 3
   },
   {
-    id: 2,
     name: "University of Engineering and Technologies",
     location: "144 Xuan Thuy Street, Cau Giay District, Ha Noi",
     introduction: "Our institutional goal states that UET will commit itself to the preparation of young individuals able to respond to the ever-changing demands of the 21st century by both inheriting and developing science and culture as the fruit of human wisdom, by exploring the profound truths of science, by preserving the natural environment that is the origin of all life, and by creating interdisciplinary programs in life science that will serve the welfare and prosperity of all humanity.",
@@ -113,7 +111,6 @@ University.create!(universities)
 
 companies = [
  {
-  id: 1,
   name: "AIIT Company",
   president: "Hikaru Shinomiya",
   user_id: 2
@@ -123,7 +120,6 @@ Company.create!(companies)
 
 jobdemands = [
   {
-    id: 1, 
     title: "Mechanical Design Engineer",
     overview: "Curtiss-Wright Corporation
 Farmingdale, NY",
@@ -145,7 +141,6 @@ Experience suing CAD",
     company_id: 1
   },
   {
-    id: 2, 
     title: "Enterprise Application Development Lead Engineer",
     overview: "Assured Information Security, Inc.  
  Rome, NY ",
@@ -165,7 +160,6 @@ Willingness to travel to customer sites to assist with installs",
     company_id: 1
   },  
   {
-    id: 3, 
     title: "Electrical Design Engineer",
     overview: "Engineering Service Professionals  
  Poughkeepsie, NY",
