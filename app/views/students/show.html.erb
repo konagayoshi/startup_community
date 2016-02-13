@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
+ <script src="../../assets/javascripts/jquery-2.1.4.min.js"></script>
+<script src="../../assets/javascripts/jquery.feeds.min.js"></script>
+<script>
+$(function(){
+	$('.feed').feeds({
+        feeds : {
+					feed1: 'http://www.recruiter.co.uk/expert-advice-how-to.rss'
+//					feed2: 'http://www.recruiter.co.uk/international-news.rss#sthash.lZSLeg3g.dpuf',
+		},
+		max:6
+	});
+});
+</script>
 </head>
 
 <body>
@@ -75,7 +87,10 @@
               <section>
                 <h2>Knowledge</h2>
                 <pre>Knowledge</pre>
-              </section>
+	      </section>
+              <section>
+		<div class="feed"></div>
+	      </section>
             </article>
             <article id="moreinformation" class="tab-content hide">
               <h3>Favorite Quote:</h3>
