@@ -127,7 +127,7 @@ jobdemands = [
     title: "Mechanical Design Engineer",
     overview: "Curtiss-Wright Corporation
 Farmingdale, NY",
-    reponsibility: "Review contractor's standards, specifications and other documentation to determine mechanical engineering requirements.
+    responsibility: "Review contractor's standards, specifications and other documentation to determine mechanical engineering requirements.
 
 Design or review simple mechanical, hydraulic, pneumatic, ventilation and/or instrumentation systems using analytical and investigative methods and techniques to ensure systems meet required specifications.
 
@@ -140,7 +140,7 @@ Experience in the Aerospace industry preferred
 Solid understanding of mechanical systems and design principles.
 Analytic and problem solving ability
 Experience suing CAD",
-    lauguage: "English",
+    launguage: "English",
     other: "",
     company_id: 1
   },
@@ -149,7 +149,7 @@ Experience suing CAD",
     title: "Enterprise Application Development Lead Engineer",
     overview: "Assured Information Security, Inc.  
  Rome, NY ",
-    reponsibility: "Leads in the development of web software projects, guiding 1 to 2 development engineers in delivering customer requirements for the SecureView Management Server
+    responsibility: "Leads in the development of web software projects, guiding 1 to 2 development engineers in delivering customer requirements for the SecureView Management Server
 
 Communicates continually with the team, explains progress on the development effort to the program lead
 
@@ -160,7 +160,7 @@ Translates designs and style guides provided by the customer into functional use
 Must be able to obtain a DoD Security Clearance
 Strong written and verbal communication skills
 Willingness to travel to customer sites to assist with installs",
-    lauguage: "English",
+    launguage: "English",
     other: "AIS is an equal opportunity employer and considers qualified applicants for employment without regard to race, color, creed, religion, national origin, sex, sexual orientation, gender identity and expression, age, disability, eligible veteran status, or any other protected factor. ",
     company_id: 1
   },  
@@ -169,7 +169,7 @@ Willingness to travel to customer sites to assist with installs",
     title: "Electrical Design Engineer",
     overview: "Engineering Service Professionals  
  Poughkeepsie, NY",
-    reponsibility: "This candidate will be designing electrical/electronic components for PCBs and machinery. They will be using OrCAD and AutoCAD.
+    responsibility: "This candidate will be designing electrical/electronic components for PCBs and machinery. They will be using OrCAD and AutoCAD.
 Develop conceptual electrical/electronic designs and/or complete & refine conceptual designs into detailed designs.
 Create full documentation packages consisting of detailed schematic(s), wiring diagrams, wire run charts, cable drawings, flow charts, PCB layout package and bill of materials & scheduling as required.
 Participate as requested in advisory/quality control capacity during assembly and debug",
@@ -178,7 +178,7 @@ Participate as requested in advisory/quality control capacity during assembly an
     workexperience: "Experience in development of printed circuit board designs and layouts.
 Knowledge of analog and digital circuitry; common communications protocols; and ability to troubleshoot to component level.
 Familiarity with typical industry standards requirements: National Electrical Code, NFPA79, CE, SEMI-S2/S8, etc.",
-    lauguage: "English",
+    launguage: "English",
     other: "",
     company_id: 1
   },  

@@ -63,28 +63,30 @@ class JobdemandsController < ApplicationController
     end
   end
 
-  def searchtoplist
+  def searchtop
     @jobdemand = Search::Jobdemand.new
   end
 
   def search
     @jobdemand = Search::Jobdemand.new(search_params)
     @jobdemands = @jobdemand
-      .matches
-      .order(title: :asc)
+     .matches
+     .includes(:company)
   end
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.                 
     def set_jobdemand
       @jobdemand = Jobdemand.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list through.  
     def jobdemand_params
-      params.require(:jobdemand).permit(:title, :overview, :reponsibility, :competency, :education, :workexperience, :lauguage, :other)
+      params.require(:jobdemand).permit(:title, :overview, :responsibility, :education, :workexperience, :launguage, :other)
     end
+
  
   def search_params
       params

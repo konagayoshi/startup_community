@@ -6,14 +6,7 @@ Rails.application.routes.draw do
       resources :study_aboards
       resources :courses
     end
-  get 'searchsome/searchtoplist' => "jobdemands#searchtoplist"
-
-  resources :jobdemands, only: [:index] do
-    collection do
-      get :search
-    end
-  end
-
+  get 'jobdemands/searchtop' => "jobdemands#searchtop"
 
 #  devise_for :users
   devise_for :users, :controllers => {
@@ -22,13 +15,13 @@ Rails.application.routes.draw do
 
   get 'user/index'
 
-  resources :companies do
-    resources :jobdemands, only: [:index] do
-             collection do
+  resources :companies
+
+  resources :jobdemands, only: [:index,:show,:edit] do
+       collection do
              get :search
        end
      end
-  end
 
   resources :students
 #  get 'students/new/:email' => "students#new"
