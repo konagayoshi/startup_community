@@ -2,7 +2,7 @@
   SEARCH
 <% end %>
 
-<%= form_for(@jobdemand,  html: { method: :get, class: 'form-horizontal', role: 'form'}) do |f| %>
+<%= form_for(@jobdemand, url: search_jobdemands_path,  html: { method: :get, class: 'form-horizontal', role: 'form'}) do |f| %>
   <%= render 'search_form', f: f %>
 <% end %>
 
@@ -12,13 +12,15 @@
     <tr>
       <th>TITLE</th>
       <th>OVERVIEW</th>
+      <th>COMPANY</th>
     </tr>
   </thead>
   <% @jobdemands.each do |jobdemand| %>
   <tbody>
   <tr>
-    <td><%= jobdemand.title %> </td>
+    <td><%= link_to "#{jobdemand.title}", jobdemand %></td>
     <td><%= jobdemand.overview %></td>
+    <td><%= link_to "#{jobdemand.company.name}", jobdemand.company %></td>
   </tr>
   </tbody>
 <% end %>
