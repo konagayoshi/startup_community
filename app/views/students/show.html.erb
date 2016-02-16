@@ -3,16 +3,73 @@
 <head>
  <script src="../../assets/javascripts/jquery-2.1.4.min.js"></script>
 <script src="../../assets/javascripts/jquery.feeds.min.js"></script>
+ <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAvABrzCnRluKK0Cj97fTMThTNR7aHVSEFb0WbViWwc6F-_w9PjBSogZu_7UgOTbx25ka46X-fnGmyvw"></script>
 <script>
-$(function(){
-	$('.feed').feeds({
-        feeds : {
-					feed1: 'http://www.recruiter.co.uk/expert-advice-how-to.rss'
-//					feed2: 'http://www.recruiter.co.uk/international-news.rss#sthash.lZSLeg3g.dpuf',
-		},
-		max:6
-	});
-});
+         google.load("feeds", "1");
+         function initialize(){
+            init("http://www.recruiter.co.uk/expert-advice-how-to.rss","feed1","6");
+            init("http://feeds.feedburner.com/GoogleJapanBlog","feed2","3"); // Google Japan Blog
+            init("http://rss.itmedia.co.jp/rss/1.0/topstory.xml","feed3","3"); // ITmedia
+         }
+         function init(feedurl,obj,feedmax) {
+            var feed = new google.feeds.Feed(feedurl);
+            feed.setNumEntries(feedmax);
+            feed.load(function(result) {
+               var container = document.getElementById(obj);
+               if (!result.error) {
+                  var h2 = document.createElement("h2");
+                  h2.appendChild(document.createTextNode(result.feed.title));
+                  container.appendChild(h2);
+                  
+                  var dl = document.createElement("dl");
+                  container.appendChild(dl);
+                  //alert(result.feed.entries);
+                  for (var i = 0; i < result.feed.entries.length; i++) {
+                     var entry = result.feed.entries[i];
+                     var attributes = ["title", "link","content","contentSnippet","publishedDate","categories"];
+                     var dt = document.createElement("dt");
+                     var dd = document.createElement("dd");
+                     var a=document.createElement("a");
+                     for (var j = 0; j < attributes.length; j++) {
+                        switch(attributes[j]){
+                           case "title":
+                              a.appendChild(document.createTextNode(entry[attributes[j]]));
+                              break;
+                           case "link":
+                              a.setAttribute("href",entry[attributes[j]]);
+                              break;
+                           case "content":
+                              //dd.appendChild(document.createTextNode(entry[attributes[j]]));
+                              break;
+                           case "publishedDate":
+                              var date = new Date(entry[attributes[j]]);
+                              var dateY=date.getFullYear();
+                              var dateM=date.getMonth()+1;
+                              var dateD=date.getDate();
+                              var str=dateD+"/"+dateM+"/"+dateY;
+                              dt.appendChild(document.createTextNode(str));
+                              break;
+                           case "contentSnippet":
+                              //alert(entry[attributes[j]]);
+                              break;
+                           case "categories":
+                              var categories=entry[attributes[j]];
+                              break;
+                           default:
+                              break;
+                        }
+                        container.appendChild(dt);
+                        dd.appendChild(a);
+                        container.appendChild(dd);
+                     }
+                  }
+               }else{
+                  container.appendChild(document.createTextNode(url));
+               }
+            });
+         }
+         google.setOnLoadCallback(initialize);
+
 </script>
 </head>
 
@@ -60,66 +117,47 @@ $(function(){
         </header>
         
 	<% if current_user.email == @student.email then %>
-        <nav id="pageNav">   
-          <ul>
-            <li><a href="#">Friends</a></li>
-            <li><a href="#">Following company</a></li>
-            <li><a href="#">Following university</a></li>
-            <li><a href="#">Desire jobs</a></li>
-          </ul>
+        <nav id="pageNav">
+        <ul class="nav nav-tabs nav-stacked">
+          <li><a href="#"> Top </a></li>
+          <li><a href="#"> University</a></li>
+          <li><a href="#"> Company</a></li>
+          <li><a href="#"> Search Job</a></li>
+        </ul>
         </nav>
         <% end %>
         <main>
-          <nav id="mainNav" role="main">
-            <ul id="tabs" class="tab-group">
-              <li class="active"><a href="#about">About</a></li>  
-              <li><a href="#moreinformation">More information</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul> 
-          </nav> 
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">About</a></li>
+            <li><a href="#tab2" data-toggle="tab">More information</a></li>
+            <li><a href="#tab3" data-toggle="tab">Contact</a></li>
+          </ul>          
           
-          <div id="content"> 
-            <article id="about" class="tab-content active">
-              <section>
-                <h2>History</h2>
-                <pre><%= @student.history %></pre>
-                </p>
-              </section>
-              <section>
-                <h2>Achivement</h2>
-                <pre><%= @student.achievement %></pre>
-              </section>
-              <section>
-                <h2>Knowledge</h2>
-                <pre>Knowledge</pre>
-	      </section>
-
+          <div class="tab-content"> 
+            <div class="tab-pane active" id="tab1">
 	      <% if current_user.email == @student.email then %>
-              <section>
-		<div class="feed"></div>
-	      </section>
+              <h2>Rss</h2>
+	      <div id ="RssDisp"><div id="feed1" class="feed"></div></div>
 	      <% end %>
-            </article>
-            <article id="moreinformation" class="tab-content hide">
+            </div>
+            <div class="tab-pane" id="tab2">
               <h3>Favorite Quote:</h3>
               <pre>quote</pre>
               <hr>
               <h3>Self introduction:</h3>
               <pre>about</pre>
-            </article>  
-            <article id="contact" class="tab-content hide">
+            </div>  
+            <div class="tab-pane" id="tab3">
               <h3>Email:</h3>
               <%= @student.email %>
               <hr>
               <h3>Phone number / Fax:</h3>
               Phone Number
-            </article>  
+            </div>  
           </div>  
         </main> 
       </div> 
     </div>
-    
-    
   <% end %>
   </body>
 </html>
