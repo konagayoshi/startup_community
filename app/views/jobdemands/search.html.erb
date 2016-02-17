@@ -13,6 +13,7 @@
       <th>TITLE</th>
       <th>OVERVIEW</th>
       <th>COMPANY</th>
+      <th>RESIPONSIBIRITY</th>
     </tr>
   </thead>
   <% @jobdemands.each do |jobdemand| %>
@@ -21,6 +22,7 @@
     <td><%= link_to "#{jobdemand.title}", jobdemand %></td>
     <td><%= jobdemand.overview %></td>
     <td><%= link_to "#{jobdemand.company.name}", jobdemand.company %></td>
+    <td><%= jobdemand.responsibility %></td>
   </tr>
   </tbody>
 <% end %>
