@@ -7,7 +7,7 @@
 <script>
          google.load("feeds", "1");
          function initialize(){
-            init("http://www.recruiter.co.uk/expert-advice-how-to.rss","feed1","6");
+            init("http://www.recruiter.co.uk/expert-advice-how-to.rss","feed1","3");
             init("http://feeds.feedburner.com/GoogleJapanBlog","feed2","3"); // Google Japan Blog
             init("http://rss.itmedia.co.jp/rss/1.0/topstory.xml","feed3","3"); // ITmedia
          }
@@ -74,71 +74,43 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Startup Community</a>
-            </div>
-	    <!--
-            <div class="search">
-              <p>Search: <input type="text"></p>
-            </div>  
-	    -->
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <span class ="welcome-back">User:
-							              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> User <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-			      <% if current_user.email == @student.email then %>
-                              <li><%= link_to "Edit", edit_student_path %></li>
-			      <% end %>
-			      <li><%= link_to "Search Job", jobdemands_searchtop_path %></li>
-                            <li><a href="#">Language</a></li>
-                            <% if user_signed_in? %>
-                            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-                            </ul>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div id="bg"></div>
-    <div id="centerWrapper"> 
-      <div id="wrapper"> 
-        
-        <header>
-          <div id="coverlay"></div>
-          <div id="info">
-            <strong><%= @student.name %></strong> <hr />
-          </div>
-        </header>
-        
-	<% if current_user.email == @student.email then %>
-        <nav id="pageNav">
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-xs-12" style="background:#191970; height:50px;"></div>
+ </div>
+ <div class="row">
+  <div class="col-xs-1" style="background:#191970; height:100px;"></div>
+  <div class="col-xs-9" style="background:#808080; height:100px;">
+            <h3><strong><%= @student.name %></strong></h3>
+  </div>
+  <div class="col-xs-2" style="background:#191970; height:100px;"></div>        
+ </div>
+ <div class="row">
+  <div class="col-xs-1" style="background:#191970; height:400px;"></div>
+  <div class="col-xs-2" style="background:#c0c0c0; height:400px;">
         <ul class="nav nav-tabs nav-stacked">
-          <li><a href="#"> Top </a></li>
-          <li><a href="#"> University</a></li>
+          <li class ="active"><a href="#"> Top </a></li>
+          <li><a href="#tabU"> University</a></li>
           <li><a href="#"> Company</a></li>
           <li><a href="#"> Search Job</a></li>
         </ul>
-        </nav>
-        <% end %>
-        <main>
+  </div>        
+  <div class="col-xs-7" style="background:#CCC; height:400px;">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab1" data-toggle="tab">About</a></li>
             <li><a href="#tab2" data-toggle="tab">More information</a></li>
             <li><a href="#tab3" data-toggle="tab">Contact</a></li>
-          </ul>          
-          
-          <div class="tab-content"> 
+          </ul>
+          <div class="tab-content">
             <div class="tab-pane active" id="tab1">
-	      <% if current_user.email == @student.email then %>
-              <h2>Rss</h2>
-	      <div id ="RssDisp"><div id="feed1" class="feed"></div></div>
-	      <% end %>
+              <% if current_user.email == @student.email then %>
+              <div class = "panel panel-info">
+              <div class = "panel-heading">RSS</div>
+              <div id="feed1" class="feed"></div>
+              <div class = "panel-body">
+              </div>
+              </div>
+              <% end %>
             </div>
             <div class="tab-pane" id="tab2">
               <h3>Favorite Quote:</h3>
@@ -146,19 +118,27 @@
               <hr>
               <h3>Self introduction:</h3>
               <pre>about</pre>
-            </div>  
+            </div>
             <div class="tab-pane" id="tab3">
               <h3>Email:</h3>
               <%= @student.email %>
               <hr>
               <h3>Phone number / Fax:</h3>
               Phone Number
-            </div>  
-          </div>  
-        </main> 
-      </div> 
-    </div>
-  <% end %>
+            </div>
+            <div class="tab-University" id="tabU">
+              <h3>University Page</h3>
+            </div>
+          </div>
+  </div>        
+  <div class="col-xs-2" style="background:#191970;height:400px;"></div>        
+ </div>
+ <div class="row">
+  <div class="col-xs-2" style="background:#191970; height:100px;"></div>        
+  <div class="col-xs-8" style="background:#191970; height:100px;"></div>        
+  <div class="col-xs-2" style="background:#191970; height:100px;"></div>        
+ </div>
+</div>
   </body>
 </html>
 
