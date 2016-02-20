@@ -1,18 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<%= render layout: 'shared/search_box' do %>
 
-<p>
-  <strong>President:</strong>
-  <%= @company.president %>
-</p>
+ <div class="col-xs-10" style="background:#FFFFFF; height:60px;">
+            <h3><strong><%= @company.name %></strong></h3>
+ </div>
 
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
+ <div class="col-xs-8" style="background:#ffffff; height:400px;">
+          <ul class="nav nav-tabs">
+            <li class="active"> <li><a href="#tab1" data-toggle="tab">Information</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+            
+           </div>
+<div class="col-xs-2" style="background:#ffffff; height:400px;">
+ </div>
+</div> 
+
+
 <% end %>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %> |

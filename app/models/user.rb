@@ -14,4 +14,16 @@ class User < ActiveRecord::Base
   has_many :study_aboards,  through: :universities
   has_many :courses,  through: :universities
 
+def has_student?(student)
+ self.students.exits?(:id => student.id)
+end
+
+def has_company?(company)
+ self.companies.exits?(:id => company.user_id)
+end
+
+def has_student?(university)
+ self.universities.exits?(:id => university.id)
+end
+
 end
