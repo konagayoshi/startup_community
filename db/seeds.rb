@@ -4,29 +4,37 @@
 #
 users = [
   {
+    email: "student@enpit.com",
+    password: "12345678",
+    password_confirmation: "12345678",
+    attr: 1
+  },
+  {
+    email: "company@enpit.com",
+    password: "12345678",
+    password_confirmation: "12345678",
+    attr: 2
+  },
+  {
+    email: "university@enpit.com",
+    password: "12345678",
+    password_confirmation: "12345678",
+    attr: 3
+  },
+  {
     email: "konagayoshi@hotmail.com",
     password: "konagayoshi",
     password_confirmation: "konagayoshi",
     attr: 1
   },
-  {
-    email: "konagayoshi@gmail.com",
-    password: "konagayoshi",
-    password_confirmation: "konagayoshi",
-    attr: 2
-  },
-  {
-    email: "enpit.global@gmail.com",
-    password: "konagayoshi",
-    password_confirmation: "konagayoshi",
-    attr: 3
-  },
+=begin
   {
     email: "kien.isp15@gmail.com",
     password: "kien.isp15",
     password_confirmation: "kien.isp15",
     attr: 1
   },
+=end
   {
     email: "nguyenphucloi193@gmail.com",
     password: "nguyenphucloi193",
@@ -51,7 +59,7 @@ students = [
     history: "2015/11 Participate Techcrunch hackathon",
     achievement: "2014/10 Completed Yokohama shonan marathon race",
     hope: "I want to work oversea in the future",
-    email: "konagayoshi@hotmail.com",
+    email: "konagayoshi@gmail.com",
     user_id: 1
   },
   {
@@ -62,7 +70,8 @@ students = [
     history: "2012 Participate National Methematic Olympiad",
     achievement: "2012 4th award",
     hope: "I want to work oversea in the future",
-    email: "kien.isp15@hotmail.com",
+#    email: "kien.isp15@hotmail.com",
+    email: "student@enpit.com",
     user_id: 4
   },
   {
@@ -104,6 +113,7 @@ International Student Section e-mail : ryugaku@of.miyazaki-u.ac.jp",
     rank: 3,
     reputation: 3,
     checked: 0,
+    email: "university@enpit.com",
     user_id: 6
   },  
 ]
@@ -113,6 +123,7 @@ companies = [
  {
   name: "AIIT Company",
   president: "Hikaru Shinomiya",
+  email: "company@enpit.com",
   user_id: 2
  }
 ]
