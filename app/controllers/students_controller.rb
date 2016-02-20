@@ -2,7 +2,9 @@ class StudentsController < ApplicationController
 	before_action :set_student, only: [:show, :edit, :update, :destroy]
 
 	def index
-	  @students = Student.all
+	  @q = Student.search(search_params)
+          @students = @q
+            .result
 	end
 
 	def show
@@ -57,13 +59,30 @@ class StudentsController < ApplicationController
 		end
 	end
 
-	private
+  def searchtop
+    @student = Search::Student.new
+  end
+
+  def search
+    @student = Search::Student.new(search_params)
+    @students = @student
+     .matches
+  end
+
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
-		@student = Student.find(params[:id])
+	@student = Student.find(params[:id])
     end
 
     def student_params
-		params.require(:student).permit(:name, :university, :major, :interestedfield, :history, :achievement, :hope, :email)
+	params.require(:student).permit(:name, :university, :major, :interestedfield, :history, :achievement, :hope, :email)
     end
+
+  def search_params
+      params
+      .require(:search_student)
+      .permit(Search::Student::ATTRIBUTES)
+  end
+
 end

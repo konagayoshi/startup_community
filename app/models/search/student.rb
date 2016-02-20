@@ -1,7 +1,10 @@
-class Search::Jobdemand < Search::Base
+class Search::Student < Search::Base
   ATTRIBUTES = %i(
-    title
-    overview
+    name
+    university
+    major
+    achievement
+    hope
   )
   attr_accessor(*ATTRIBUTES)
 
@@ -12,7 +15,7 @@ class Search::Jobdemand < Search::Base
     results = results.where(contains(t[:university], university)) if university.present?
     results = results.where(contains(t[:major], major)) if major.present?
     results = results.where(contains(t[:achievement], achievement)) if achievement.present?
-    results = results.where(contains(t[:hope], hoep)) if hope.present?
+    results = results.where(contains(t[:hope], hope)) if hope.present?
     results
   end
 end

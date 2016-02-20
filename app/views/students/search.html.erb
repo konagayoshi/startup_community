@@ -1,0 +1,33 @@
+<% content_for(:title) do %>
+  SEARCH
+<% end %>
+
+<%= form_for(@students, url: search_students_path,  html: { method: :get, class: 'form-horizontal', rol\
+e: 'form'}) do |f| %>
+  <%= render 'search_form', f: f %>
+<% end %>
+
+<%= render layout: 'shared/search_result_box' do %>
+  <table class="table table-list ">
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>UNIVERSITY</th>
+      <th>MAJOR</th>
+      <th>ACHIEVEMENT</th>
+      <th>DREAM</ht>
+    </tr>
+  </thead>
+  <% @students.each do |student| %>
+  <tbody>
+  <tr>
+    <td><%= link_to "#{student.name}", student %></td>
+    <td><%= student.university %></td>
+    <td><%= student.major %></td>
+    <td><%= student.achivement %></td>
+    <td><%= sutdent.hope %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>
+<% end %>

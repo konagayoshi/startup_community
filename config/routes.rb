@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
   resources :universities do
-      resources :scholarships
+      resources :scholarships do
+              collection do 
+                get :search
+              end
+      end
       resources :admissions
       resources :news_events
       resources :study_aboards
       resources :courses
     end
+
   get 'jobdemands/searchtop' => "jobdemands#searchtop"
+  get 'students/searchtop' => "students#searchtop"
+  get 'companies/searchtop' => "companies#searchtop"
+  get 'universities/searchtop' => "universities#searchtop"
+  get 'scholarships/searchtop' => "scholarships#searchtop"
 
 #  devise_for :users
   devise_for :users, :controllers => {
@@ -23,7 +32,11 @@ Rails.application.routes.draw do
        end
      end
 
-  resources :students
+  resources :students, only:[:index,:show,:edit] do
+      collection do
+             get :search
+      end
+  end
 #  get 'students/new/:email' => "students#new"
   
   # The priority is based upon order of creation: first created -> highest priority.
