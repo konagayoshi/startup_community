@@ -2,8 +2,7 @@
   SEARCH
 <% end %>
 
-<%= form_for(@students, url: search_students_path,  html: { method: :get, class: 'form-horizontal', rol\
-e: 'form'}) do |f| %>
+<%= form_for(@student, url: search_students_path,  html: { method: :get, class: 'form-horizontal', role: 'form'}) do |f| %>
   <%= render 'search_form', f: f %>
 <% end %>
 
@@ -24,8 +23,8 @@ e: 'form'}) do |f| %>
     <td><%= link_to "#{student.name}", student %></td>
     <td><%= student.university %></td>
     <td><%= student.major %></td>
-    <td><%= student.achivement %></td>
-    <td><%= sutdent.hope %></td>
+    <td><%= student.achievement %></td>
+    <td><%= student.hope %></td>
   </tr>
   </tbody>
 <% end %>

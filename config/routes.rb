@@ -32,7 +32,7 @@ Rails.application.routes.draw do
        end
      end
 
-  resources :students, only:[:index,:show,:edit] do
+  resources :students do
       collection do
              get :search
       end
