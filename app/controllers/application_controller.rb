@@ -13,9 +13,21 @@ class ApplicationController < ActionController::Base
         student_path(id: student.id)
       end
     elsif current_user.attr == 2 then
-      companies_path
+      #companies_path
+      company = Company.find_by(email: current_user.email)
+      if company == nil then
+        new_company_path
+      else
+        company_path(id: company.id)
+      end
     else 
-      universities_path
+      #universities_path
+      university = University.find_by(email: current_user.email)
+      if university == nil then
+        new_university_path
+      else
+        university_path(id: university.id)
+      end
     end
   end
 
