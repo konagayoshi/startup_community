@@ -1,78 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
- <script src="../../assets/javascripts/jquery-2.1.4.min.js"></script>
+<script src="../../assets/javascripts/jquery-2.1.4.min.js"></script>
 <script src="../../assets/javascripts/jquery.feeds.min.js"></script>
- <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAvABrzCnRluKK0Cj97fTMThTNR7aHVSEFb0WbViWwc6F-_w9PjBSogZu_7UgOTbx25ka46X-fnGmyvw"></script>
-<script>
-         google.load("feeds", "1");
-         function initialize(){
-            init("http://www.recruiter.co.uk/expert-advice-how-to.rss","feed1","3");
-            init("http://feeds.feedburner.com/GoogleJapanBlog","feed2","3"); // Google Japan Blog
-            init("http://rss.itmedia.co.jp/rss/1.0/topstory.xml","feed3","3"); // ITmedia
-         }
-         function init(feedurl,obj,feedmax) {
-            var feed = new google.feeds.Feed(feedurl);
-            feed.setNumEntries(feedmax);
-            feed.load(function(result) {
-               var container = document.getElementById(obj);
-               if (!result.error) {
-                  var h2 = document.createElement("h2");
-                  h2.appendChild(document.createTextNode(result.feed.title));
-                  container.appendChild(h2);
-                  
-                  var dl = document.createElement("dl");
-                  container.appendChild(dl);
-                  //alert(result.feed.entries);
-                  for (var i = 0; i < result.feed.entries.length; i++) {
-                     var entry = result.feed.entries[i];
-                     var attributes = ["title", "link","content","contentSnippet","publishedDate","categories"];
-                     var dt = document.createElement("dt");
-                     var dd = document.createElement("dd");
-                     var a=document.createElement("a");
-                     for (var j = 0; j < attributes.length; j++) {
-                        switch(attributes[j]){
-                           case "title":
-                              a.appendChild(document.createTextNode(entry[attributes[j]]));
-                              break;
-                           case "link":
-                              a.setAttribute("href",entry[attributes[j]]);
-                              break;
-                           case "content":
-                              //dd.appendChild(document.createTextNode(entry[attributes[j]]));
-                              break;
-                           case "publishedDate":
-                              var date = new Date(entry[attributes[j]]);
-                              var dateY=date.getFullYear();
-                              var dateM=date.getMonth()+1;
-                              var dateD=date.getDate();
-                              var str=dateD+"/"+dateM+"/"+dateY;
-                              dt.appendChild(document.createTextNode(str));
-                              break;
-                           case "contentSnippet":
-                              //alert(entry[attributes[j]]);
-                              break;
-                           case "categories":
-                              var categories=entry[attributes[j]];
-                              break;
-                           default:
-                              break;
-                        }
-                        container.appendChild(dt);
-                        dd.appendChild(a);
-                        container.appendChild(dd);
-                     }
-                  }
-               }else{
-                  container.appendChild(document.createTextNode(url));
-               }
-            });
-         }
-         google.setOnLoadCallback(initialize);
+<script type="text/html" id="entryTmpl">
+	<article class="<!=source!> entry">
+		<p>
+			<a class="link" href="<!=link!>" title="<!=feedDescription!>"><!=contentSnippet!></a>
+		</p>
+		<div class="publishedDate"><!=publishedDate!></div>
+		
+		<br />
+	</article>
+</script>
 
+ 
+<script>
+$(function(){
+	$('.feed').feeds({
+        feeds : {
+		feed1: 'http://www.recruiter.co.uk/expert-advice-how-to.rss'
+		},
+max:6,
+		entryTemplate : 'entryTmpl',
+		onComplete : function(entries) {
+			$(this).find('a').attr('target', '_blank');
+		}
+	});
+});
 </script>
 </head>
-
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -118,38 +75,34 @@
   <div class="col-xs-10" style="background:#FFFFFF; height:60px;">
             <h3><strong><%= @student.name %></strong></h3>
   </div>
-  <div class="col-xs-10" style="background:#CCC; height:400px;">
+  <div class="col-xs-10" style="background:#ffffff; height:400px;">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab1" data-toggle="tab">News</a></li>
             <li><a href="#tab2" data-toggle="tab">Information</a></li>
-            <li><a href="#tab3" data-toggle="tab">Contact</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab1">
-              <% if current_user.email == @student.email then %>
-              <div class = "panel panel-info">
-              <div id="feed1" class="feed"></div>
-              <div class = "panel-body">
-              </div>
-              </div>
-              <% end %>
+	      <% if current_user.email == @student.email then %>
+	      <br />
+	      <div class="feed"></div>
+	      <% end %>
             </div>
             <div class="tab-pane" id="tab2">
-              <h3>Favorite Quote:</h3>
-              <pre>quote</pre>
-              <hr>
-              <h3>Self introduction:</h3>
-              <pre>about</pre>
-            </div>
-            <div class="tab-pane" id="tab3">
-              <h3>Email:</h3>
-              <%= @student.email %>
-              <hr>
-              <h3>Phone number / Fax:</h3>
-              Phone Number
-            </div>
-            <div class="tab-University" id="tabU">
-            </div>
+              <h3>University</h3>
+              <pre><%= @student.university %></pre>
+              <h3>Major</h3>
+              <pre><%= @student.major %></pre>
+              <h3>History</h3>
+              <pre><%= @student.history %></pre>
+              <h3>Achivements</h3>
+              <pre><%= @student.achievement %></pre>
+              <h3>Interest Fields</h3>
+              <pre><%= @student.interestedfield %></pre>
+              <h3>Dreams</h3>
+              <pre><%= @student.hope %></pre>
+              <h3>Email</h3>
+              <pre><%= @student.email %></pre>
+	    </div>
           </div>
   </div>
  </div>
