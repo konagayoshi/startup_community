@@ -1,21 +1,27 @@
 Rails.application.routes.draw do
-  resources :universities do
-      resources :scholarships do
-              collection do 
-                get :search
-              end
-      end
-      resources :admissions
-      resources :news_events
-      resources :study_aboards
-      resources :courses
-    end
 
   get 'jobdemands/searchtop' => "jobdemands#searchtop"
   get 'students/searchtop' => "students#searchtop"
   get 'companies/searchtop' => "companies#searchtop"
   get 'universities/searchtop' => "universities#searchtop"
   get 'scholarships/searchtop' => "scholarships#searchtop"
+
+  resources :universities do
+      resources :scholarships do
+       collection do 
+         get :search
+       end
+      end
+      resources :admissions
+      resources :news_events
+      resources :study_aboards
+      resources :courses
+
+      collection do 
+        get :search
+      end
+
+    end
 
 #  devise_for :users
   devise_for :users, :controllers => {

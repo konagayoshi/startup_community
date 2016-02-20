@@ -61,6 +61,16 @@ class UniversitiesController < ApplicationController
     end
   end
 
+  def searchtop
+    @university = Search::University.new
+  end
+
+  def search
+    @university = Search::University.new(search_params)
+    @universities = @university
+     .matches
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_university
@@ -71,4 +81,11 @@ class UniversitiesController < ApplicationController
     def university_params
       params.require(:university).permit(:name, :location, :introduction, :contact, :cooperation, :rank, :reputation, :checked)
     end
+
+  def search_params
+      params
+      .require(:search_university)
+      .permit(Search::University::ATTRIBUTES)
+  end
+
 end
