@@ -80,12 +80,6 @@
    <div class="navbar-header">
      <a class="navbar-brand" href="#">Startup Community</a>
    </div>
-   <!--
-   <div class="search">
-    <p>Search: <input type="text"></p>
-   </div>
-   -->
-
    <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
      <span class ="welcome-back">User:
@@ -105,42 +99,35 @@
      </span>
     </ul>
    </div>
-
  </div>
 </nav>
 
 <div class="container-fluid">
- <div class="row">
-  <div class="col-xs-12" style="background:#191970; height:50px;"></div>
  </div>
  <div class="row">
-  <div class="col-xs-1" style="background:#191970; height:100px;"></div>
-  <div class="col-xs-9" style="background:#808080; height:100px;">
-            <h3><strong><%= @student.name %></strong></h3>
-  </div>
-  <div class="col-xs-2" style="background:#191970; height:100px;"></div>        
- </div>
- <div class="row">
-  <div class="col-xs-1" style="background:#191970; height:400px;"></div>
-  <div class="col-xs-2" style="background:#c0c0c0; height:400px;">
+  <div class="col-xs-2" style="background:#ffffff; height:400px;">
         <ul class="nav nav-tabs nav-stacked">
-          <li class ="active"><a href="#"> Top </a></li>
-          <li><a href="#tabU"> University</a></li>
+          <li class ="active"><h3>&nbsp;Search</strong></li>
+          <li><a href="#tabU"> Student</a></li>
           <li><a href="#"> Company</a></li>
-          <li><%= link_to "Search Job", jobdemands_searchtop_path %></li>
+          <li><a href="#"> University</a></li>
+          <li><%= link_to "Job", jobdemands_searchtop_path %></li>
+          <li><a href="#"> Scholarship</a></li>
         </ul>
   </div>        
-  <div class="col-xs-7" style="background:#CCC; height:400px;">
+  <div class="col-xs-10" style="background:#FFFFFF; height:60px;">
+            <h3><strong><%= @student.name %></strong></h3>
+  </div>
+  <div class="col-xs-10" style="background:#CCC; height:400px;">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1" data-toggle="tab">About</a></li>
-            <li><a href="#tab2" data-toggle="tab">More information</a></li>
+            <li class="active"><a href="#tab1" data-toggle="tab">News</a></li>
+            <li><a href="#tab2" data-toggle="tab">Information</a></li>
             <li><a href="#tab3" data-toggle="tab">Contact</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab1">
               <% if current_user.email == @student.email then %>
               <div class = "panel panel-info">
-              <div class = "panel-heading">RSS</div>
               <div id="feed1" class="feed"></div>
               <div class = "panel-body">
               </div>
@@ -164,13 +151,7 @@
             <div class="tab-University" id="tabU">
             </div>
           </div>
-  </div>        
-  <div class="col-xs-2" style="background:#191970;height:400px;"></div>        
- </div>
- <div class="row">
-  <div class="col-xs-2" style="background:#191970; height:100px;"></div>        
-  <div class="col-xs-8" style="background:#191970; height:100px;"></div>        
-  <div class="col-xs-2" style="background:#191970; height:100px;"></div>        
+  </div>
  </div>
 </div>
   </body>
