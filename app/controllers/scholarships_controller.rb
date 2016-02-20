@@ -1,6 +1,6 @@
 class ScholarshipsController < ApplicationController
   before_action :set_scholarship, only: [:show, :edit, :update, :destroy]
-  before_filter :load_university
+#  before_filter :load_university
   # GET /scholarships
   # GET /scholarships.json
   def index
@@ -65,18 +65,37 @@ class ScholarshipsController < ApplicationController
     end
   end
 
+  def searchtop
+    @scholarship = Search::Scholarship.new
+  end
+
+  def search
+    @scholarship = Search::Scholarship.new(search_params)
+    @scholarships = @scholarship
+     .matches
+     .includes(:university)
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_scholarship
       @scholarship = Scholarship.find(params[:id])
     end
 
-    def load_university
-      @university = University.find(params[:university_id])
-    end
+#    def load_university
+#      @university = University.find(params[:university_id])
+#    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scholarship_params
       params.require(:scholarship).permit(:title, :sponsor, :award, :requirements, :start_time, :end_time, :content, :contact, :university_id)
     end
+
+
+  def search_params
+      params
+      .require(:search_scholarship)
+      .permit(Search::Scholarship::ATTRIBUTES)
+  end
 end

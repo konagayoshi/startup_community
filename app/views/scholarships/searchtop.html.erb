@@ -1,0 +1,7 @@
+<% content_for(:title) do %>
+  SEARCH
+<% end %>
+
+<%= form_for(@scholarship, url:search_scholarships_path,  html: { method: :get, class: 'form-horizontal', role: 'form' }) do |f| %>
+  <%= render 'search_form', f: f %>
+<% end %>

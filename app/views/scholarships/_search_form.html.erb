@@ -1,0 +1,31 @@
+<%= render layout: 'shared/search_box' do %>
+
+<h3 >Scholarship</strong></h3>
+
+  <div class="form-group">
+   <div class="col-xs-8">
+    <label class="control-label" for="">TITLE</label>
+      <%= f.text_field :title, class: 'form-control'  %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="col-xs-8">
+   <label class="control-label" for="">SPONSOR</label>
+      <%= f.text_field :sponsor, class: 'form-control'  %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="col-xs-8" ng-class="{'has-success':form.award.$valid && form.award.$dirty,'has-error':form.award.$dirty}">
+   <label class="control-label" for="">AWARD</label>
+         <input type="number" class="form-control" name="award" ng-model="award" integer required>
+  </div>
+  </div>
+
+  <button class="btn btn-default btn-left" type="reset"> CLEAR </button>
+  <button class="btn btn-default btn-primary" type="submit"><i class="fa fa-search"></i> SEARCH</button>
+
+<% end %>
+
+

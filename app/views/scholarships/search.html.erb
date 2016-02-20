@@ -1,0 +1,31 @@
+<% content_for(:title) do %>
+  SEARCH
+<% end %>
+
+<%= form_for(@scholarship, url: search_scholarships_path,  html: { method: :get, class: 'form-horizontal', role: 'form'}) do |f| %>
+  <%= render 'search_form', f: f %>
+<% end %>
+
+<%= render layout: 'shared/search_result_box' do %>
+  <table class="table table-list ">
+  <thead>
+    <tr>
+      <th>TITLE</th>
+      <th>SPONSOR</th>
+      <th>AWARD</th>
+      <th>REGISTERED BY</th>
+    </tr>
+  </thead>
+  <% @scholarships.each do |scholarship| %>
+  <tbody>
+  <tr>
+    <td><%= link_to "#{sholarship.title}", shoclarship %></td>
+    <td><%= sholarship.sponsor %></td>
+    <td><%= sholarship.award %></td>
+    <td><%= link_to "#{sholarship.university.name}", sholarship.university %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>
+<% end %>
+
