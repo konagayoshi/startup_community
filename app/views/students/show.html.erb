@@ -30,48 +30,9 @@ max:6,
 });
 </script>
 </head>
-<body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
- <div class="container-fluid">
-   <div class="navbar-header">
-     <a class="navbar-brand" href="#">Startup Community</a>
-   </div>
-   <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav navbar-right">
-     <span class ="welcome-back">User:
+<%= render layout: 'shared/search_box' do %>
 
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> User <span class="caret"></span></a>
-       <ul class="dropdown-menu" role="menu">
-        <% if current_user.email == @student.email then %>
-          <li><%= link_to "Edit", edit_student_path %>
-        <% end %>
-        <li><%= link_to "Search Job", jobdemands_searchtop_path %></li>
-        <li><a href="#">Language</a></li>
-        <% if user_signed_in? %>
-        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-        <% end %>
-       </ul>
-
-     </span>
-    </ul>
-   </div>
- </div>
-</nav>
-
-<div class="container-fluid">
- </div>
- <div class="row">
-  <div class="col-xs-2" style="background:#ffffff; height:400px;">
-        <ul class="nav nav-tabs nav-stacked">
-          <li class ="active"><h3>&nbsp;Search</strong></li>
-          <li><a href="#tabU"> Student</a></li>
-          <li><a href="#"> Company</a></li>
-          <li><a href="#"> University</a></li>
-          <li><%= link_to "Job", jobdemands_searchtop_path %></li>
-          <li><a href="#"> Scholarship</a></li>
-        </ul>
-  </div>        
   <div class="col-xs-10" style="background:#FFFFFF; height:60px;">
             <h3><strong><%= @student.name %></strong></h3>
   </div>
@@ -108,5 +69,7 @@ max:6,
   <div class="col-xs-2" style="background:#ffffff; height:400px;">
  </div>
 </div>
-  </body>
+ 
+<% end %> 
+
 </html>
