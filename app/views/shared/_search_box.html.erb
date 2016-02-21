@@ -12,7 +12,6 @@
                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Settings <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="/user/index">profile</a></li>
-                    <li><a href="#">Language</a></li>
                     <% if user_signed_in? %>
                     <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
                     <% end %>
