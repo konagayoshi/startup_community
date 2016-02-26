@@ -32,7 +32,12 @@ Rails.application.routes.draw do
 
   get 'user/index'
 
-  resources :companies
+  resources :companies do
+       collection do 
+             get :search
+       end
+  end
+
 
   resources :jobdemands, only: [:index,:show,:edit] do
        collection do

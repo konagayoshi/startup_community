@@ -1,0 +1,33 @@
+<% content_for(:title) do %>
+  SEARCH
+<% end %>
+
+<%= form_for(@company, url: search_companies_path,  html: { method: :get, class: 'form-horizontal', role: 'form'}) do |f| %>
+  <%= render 'search_form', f: f %>
+<% end %>
+
+<%= render layout: 'shared/search_result_box' do %>
+  <table class="table table-list ">
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>INSUTRY</th>
+      <th>LOCATION</th>
+      <th>EMPLOYEES</th>
+      <th>ESTABLISHED</ht>
+    </tr>
+  </thead>
+  <% @companies.each do |company| %>
+  <tbody>
+  <tr>
+    <td><%= link_to "#{company.name}", company %></td>
+    <td><%= company.industry %></td>
+    <td><%= company.location %></td>
+    <td><%= company.number_of_employees %></td>
+    <td><%= company.date_of_establishment %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>
+<% end %>
+

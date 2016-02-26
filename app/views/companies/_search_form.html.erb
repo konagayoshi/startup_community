@@ -1,0 +1,29 @@
+<%= render layout: 'shared/search_box' do %>
+
+<h3 ><strong>Company</strong></h3>
+
+  <div class="form-group">
+   <div class="col-xs-8">
+    <label class="control-label" for="">NAME</label>
+      <%= f.text_field :name, class: 'form-control'  %>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <div class="col-xs-8">
+   <label class="control-label" for="">INDUSTRY</label>
+      <%= f.text_field :industry, class: 'form-control'  %>
+   </div>
+  </div>
+
+  <div class="form-group">
+  <div class="col-xs-8">
+    <label class="control-label" for="">LOCATION</label>
+      <%= f.text_field :location, class: 'form-control'  %>
+  </div>
+  </div>
+
+  <button class="btn btn-default btn-left" type="reset"> CLEAR </button>
+  <button class="btn btn-default btn-primary" type="submit"><i class="fa fa-search"></i> SEARCH</button>
+
+<% end %>

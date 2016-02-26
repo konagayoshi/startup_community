@@ -61,6 +61,17 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def searchtop
+    @company = Search::Company.new
+  end
+
+  def search
+    @company = Search::Company.new(search_params)
+    @companies = @company
+     .matches
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
@@ -69,6 +80,13 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :president)
+      params.require(:company).permit(:name, :president, :user_id, :email, :industry, :corporate_principle, :number_of_employees, :location, :date_of_establishment)
     end
+ 
+   def search_params
+      params
+      .require(:search_company)
+      .permit(Search::Company::ATTRIBUTES)
+  end
+
 end
