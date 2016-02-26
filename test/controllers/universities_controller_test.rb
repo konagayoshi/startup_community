@@ -25,10 +25,10 @@ class UniversitiesControllerTest < ActionController::TestCase
     assert_redirected_to university_path(assigns(:university))
   end
 
-#  test "should show university" do
-#    get :show, id: @university
-#    assert_response :success
-#  end
+  test "should show university" do
+    get :show, id: @university
+    assert_response :success
+  end
 
   test "should get edit" do
     get :edit, id: @university

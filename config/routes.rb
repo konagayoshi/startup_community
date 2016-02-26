@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :news_events
       resources :study_aboards
       resources :courses
-      resources :scholarship
+      resources :scholarships
 
       collection do 
         get :search
