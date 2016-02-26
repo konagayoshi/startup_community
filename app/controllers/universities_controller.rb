@@ -1,5 +1,5 @@
 class UniversitiesController < ApplicationController
-  before_action :set_university, only: [:show, :edit, :update, :destroy]
+  before_action :set_university, only: [:show, :edit, :update, :destroy, :picture]
 
   # GET /universities
   # GET /universities.json
@@ -70,6 +70,12 @@ class UniversitiesController < ApplicationController
     @universities = @university
      .matches
   end
+
+  def picture
+    @university = University.find(params[:id])
+    send_data(@university.logo, :disposition => "inline", :type => "image/png")
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

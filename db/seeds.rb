@@ -22,19 +22,11 @@ users = [
     attr: 3
   },
   {
-    email: "konagayoshi@hotmail.com",
-    password: "konagayoshi",
-    password_confirmation: "konagayoshi",
-    attr: 1
-  },
-=begin
-  {
     email: "kien.isp15@gmail.com",
     password: "kien.isp15",
     password_confirmation: "kien.isp15",
     attr: 1
   },
-=end
   {
     email: "nguyenphucloi193@gmail.com",
     password: "nguyenphucloi193",
@@ -59,7 +51,7 @@ students = [
     history: "2015/11 Participate Techcrunch hackathon",
     achievement: "2014/10 Completed Yokohama shonan marathon race",
     hope: "I want to work oversea in the future",
-    email: "konagayoshi@gmail.com",
+    email: "student@enpit.com",
     user_id: 1
   },
   {
@@ -70,8 +62,7 @@ students = [
     history: "2012 Participate National Methematic Olympiad",
     achievement: "2012 4th award",
     hope: "I want to work oversea in the future",
-#    email: "kien.isp15@hotmail.com",
-    email: "student@enpit.com",
+    email: "kien.isp15@hotmail.com",
     user_id: 4
   },
   {
@@ -93,28 +84,35 @@ universities = [
  name: "University of Miyazaki",
  location: "1-1, Gakuen Kibanadai-nishi, Miyazaki-shi, 889-2192",
  introduction: "Our institutional goal states that UOM will commit itself to the preparation of young individuals able to respond to the ever-changing demands of the 21st century by both inheriting and developing science and culture as the fruit of human wisdom, by exploring the profound truths of science, by preserving the natural environment that is the origin of all life, and by creating interdisciplinary programs in life science that will serve the welfare and prosperity of all humanity.",
- contact: "TEL : +81-985-58-7104
-FAX : +81-985-58-7782
-e-mail : kokusai@of.miyazaki-u.ac.jp
-International Student Section  e-mail : ryugaku@of.miyazaki-u.ac.jp",
+ contact: "TEL : +81-985-58-7104, 
+FAX : +81-985-58-7782,
+e-mail : kokusai@of.miyazaki-u.ac.jp,
+International Student Section  e-mail : ryugaku@of.miyazaki-u.ac.jp ",
  cooperation: "",
  rank: 3,
  reputation: 3,
  checked: 0,
- user_id: 3
+ email: "university@enpit.com",
+ user_id: 3,
+ url: "http://www.miyazaki-u.ac.jp/",
+ logo: File.open("#{Rails.root}/images/miyazaki.png").read
   },
   {
     name: "University of Engineering and Technologies",
     location: "144 Xuan Thuy Street, Cau Giay District, Ha Noi",
     introduction: "Our institutional goal states that UET will commit itself to the preparation of young individuals able to respond to the ever-changing demands of the 21st century by both inheriting and developing science and culture as the fruit of human wisdom, by exploring the profound truths of science, by preserving the natural environment that is the origin of all life, and by creating interdisciplinary programs in life science that will serve the welfare and prosperity of all humanity.",
-    contact: "Tel: 84.4.37547.461, Fax: 84.4.37547.460, Email: uet@vnu.edu.vn
-International Student Section e-mail : ryugaku@of.miyazaki-u.ac.jp",
+    contact: "Tel: 84.4.37547.461,
+ Fax: 84.4.37547.460,
+ Email: uet@vnu.edu.vn,
+International Student Section e-mail : ryugaku@vnu.ed.vn",
     cooperation: "",
     rank: 3,
     reputation: 3,
     checked: 0,
-    email: "university@enpit.com",
-    user_id: 6
+    email: "hikarushinomiya2080085@gmail.com",
+    user_id: 6,
+    url: "http://e.uet.vnu.edu.vn",
+    logo: File.open("#{Rails.root}/images/uet.png").read
   },  
 ]
 University.create!(universities)
@@ -129,7 +127,9 @@ companies = [
   corporate_principle: "Vitalize Japan by Information Technology",
   number_of_employees: 3,
   location: "Tokyo",
-  date_of_establishment: '2016-2-25'
+  date_of_establishment: '2016-2-25',
+  url: "http://aiit.ac.jp/",
+  logo: File.open("#{Rails.root}/images/aiit.png").read
  }
 ]
 Company.create!(companies)

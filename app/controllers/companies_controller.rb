@@ -71,6 +71,10 @@ class CompaniesController < ApplicationController
      .matches
   end
 
+  def picture
+    @company = Company.find(params[:id])
+    send_data(@company.logo, :disposition => "inline", :type => "image/png")
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

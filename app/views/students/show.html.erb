@@ -37,16 +37,16 @@ max:6,
             <h3><strong><%= @student.name %></strong></h3>
   </div>
   <div class="col-xs-8" style="background:#ffffff; height:400px;">
+
+	  <% if current_user.email == @student.email then %>
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab1" data-toggle="tab">News</a></li>
             <li><a href="#tab2" data-toggle="tab">Information</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab1">
-	      <% if current_user.email == @student.email then %>
-	      <br />
+              <br/>
 	      <div class="feed"></div>
-	      <% end %>
             </div>
             <div class="tab-pane" id="tab2">
               <h3>University</h3>
@@ -65,6 +65,30 @@ max:6,
               <pre><%= @student.email %></pre>
 	    </div>
           </div>
+          <% else %>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Information</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+              <h3>University</h3>
+              <pre><%= @student.university %></pre>
+              <h3>Major</h3>
+              <pre><%= @student.major %></pre>
+              <h3>History</h3>
+              <pre><%= @student.history %></pre>
+              <h3>Achivements</h3>
+              <pre><%= @student.achievement %></pre>
+              <h3>Interest Fields</h3>
+              <pre><%= @student.interestedfield %></pre>
+              <h3>Dreams</h3>
+              <pre><%= @student.hope %></pre>
+              <h3>Email</h3>
+              <pre><%= @student.email %></pre>
+            </div>
+          </div>
+          <% end %>
+
   </div>
   <div class="col-xs-2" style="background:#ffffff; height:400px;">
  </div>

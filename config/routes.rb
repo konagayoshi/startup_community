@@ -12,9 +12,14 @@ Rails.application.routes.draw do
       resources :news_events
       resources :study_aboards
       resources :courses
+      resources :scholarship
 
       collection do 
         get :search
+      end
+   
+      member do
+        get :picture
       end
 
     end
@@ -33,8 +38,15 @@ Rails.application.routes.draw do
   get 'user/index'
 
   resources :companies do
-       collection do 
+       
+      resources :jobdemands 
+
+      collection do 
              get :search
+       end
+
+       member do 
+             get :picture
        end
   end
 

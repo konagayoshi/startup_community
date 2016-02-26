@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
 
 <%= render layout: 'shared/search_box' do %>
 
@@ -5,17 +9,68 @@
             <h3><strong><%= @company.name %></strong></h3>
  </div>
 
- <div class="col-xs-8" style="background:#ffffff; height:400px;">
-          <ul class="nav nav-tabs">
-            <li class="active"> <li><a href="#tab1" data-toggle="tab">Information</a></li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane active" id="tab1">
-            
+ <div class="col-xs-10" style="background:#ffffff; height:400px;">
+    <nav> 
+     <ul id="n" class="clearfix">
+            <li class="active"> <a href="#tab1">Profile</a></li>
+            <li><a href="#tab2">Job</a></li>
+      </ul>
+    </nav>
+
+       <div id="content" class="clearfix">
+        <section class="tab-content active" id="tab1">
+            <div id="userStats" class="clearfix">
+
+             <div class="pic">
+             <a href="#"><%= image_tag picture_company_path(@company), :width => '150' , :height => '150' %></a>
+             </div>
+
+             <div class="data">
+             <h1><%= @company.name %></h1>
+             <h3><%= @company.location %></h3>
+             <h4><%= link_to @company.url, @company.url %></h4>
+             </div>
            </div>
-<div class="col-xs-2" style="background:#ffffff; height:400px;">
- </div>
+
+        <h1>Corporate Principle:</h1>
+         <p><%= @company.corporate_principle %></p>  
+ 
+         </section> 
+
+    <section id="tab2" class="tab-content hide">
+
+      <div>
+       <% if current_user.email == @company.email then %>
+       <br /> <%= link_to 'List of Job', company_jobdemands_path(@company) %><br />
+
+       <% else %>
+
+        <table class="table table-list ">
+         <thead>
+          <tr>
+           <th>TITLE</th>
+           <th>OVERVIEW</th>
+           <th>RESPONSIBILITY</th>
+           </tr>
+           </thead>
+          <% @company.jobdemands.each do |jobdemand| %>
+          <tbody>
+           <tr>
+           <td><%= jobdemand.title %></td>
+           <td><%= jobdemand.overview %></td>
+           <td><%= jobdemand.responsibility %></td>
+           </tr>
+           </tbody>
+           <% end %>
+          </table>
+      <% end %>
+       </div>
+    </section>
+
+
+
+       </div> 
 </div> 
-
-
 <% end %>
+
+</html>
