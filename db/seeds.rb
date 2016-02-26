@@ -124,7 +124,12 @@ companies = [
   name: "AIIT Company",
   president: "Hikaru Shinomiya",
   email: "company@enpit.com",
-  user_id: 2
+  user_id: 2,
+  industry: "Information Technology",
+  corporate_principle: "Vitalize Japan by Information Technology",
+  number_of_employees: 3,
+  location: "Tokyo",
+  date_of_establishment: '2016-2-25'
  }
 ]
 Company.create!(companies)
