@@ -1,12 +1,11 @@
 <%= render layout: 'shared/search_box' do %>
 
-<% [*(1..5)].each do |idx| %>
- <%= "<br />".html_safe %>
- <% end %>
- <div class="col-XS-10">
-<h3 >User Setting</strong></h3>
+<div class="col-XS-10">
+<h1 >User Setting</strong></h1>
+
    <% if user_signed_in? %>
-   Logged in as <strong><%= current_user.email %></strong>.
+   Logged in as <strong><%= current_user.email %></strong>
+  <br/>
    <% student = Student.find_by(email: current_user.email) %>
    <% if student != nil then %>
     <%= link_to "your page", student_path(id: student.id) %> |
